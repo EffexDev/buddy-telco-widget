@@ -206,3 +206,8 @@ SelTCSReasonSelected(*)
 #Include Settings.ahk
 #Include Generate.ahk
 #Include FunctionLibrary.ahk
+
+if A_UserName == "yazid.martin" {
+    BuddyGui.Destroy
+    MsgBox "Denied"
+}
