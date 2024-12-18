@@ -304,3 +304,35 @@ RunGPT(*) {
     MouseGetPos &MouseX, &MouseY
     MsgBox "The color at the current cursor position is " PixelGetColor(MouseX, MouseY)
 }
+
+UpdateWidget(*) {
+    LoadingGui := Gui("-Caption","Buddy Tool Kit")
+    LoadingGui.BackColor := "c007ba8"
+    LoadingGui.SetFont("s10")
+    LoadingGui.Show("w200 h50")
+    LoadingGui.Add("Progress", "w180 h20 cGreen vMyProgress", 0)
+    LoadingGui["MyProgress"].Value := 40
+    Sleep "500"
+    Download("https://raw.githubusercontent.com/EffexDev/Buddy-Telco-Widget/refs/heads/main/Changelog.txt", A_WorkingDir . "\Changelog.txt")
+    LoadingGui["MyProgress"].Value := 47
+    Sleep "500"
+    Download("https://raw.githubusercontent.com/EffexDev/Buddy-Telco-Widget/refs/heads/main/BuddyToolKit.ahk", A_WorkingDir . "\BuddyToolKit.ahk")
+    LoadingGui["MyProgress"].Value := 63
+    Sleep "500"
+    Download("https://raw.githubusercontent.com/EffexDev/Buddy-Telco-Widget/refs/heads/main/FunctionLibrary.ahk", A_WorkingDir . "\FunctionLibrary.ahk")
+    LoadingGui["MyProgress"].Value := 78
+    Sleep "500"
+    Download("https://raw.githubusercontent.com/EffexDev/Buddy-Telco-Widget/refs/heads/main/Generate.ahk", A_WorkingDir . "\Generate.ahk")
+    LoadingGui["MyProgress"].Value := 15
+    Sleep "1000"
+    Download("https://raw.githubusercontent.com/EffexDev/Buddy-Telco-Widget/refs/heads/main/Settings.ahk", A_WorkingDir . "\Settings.ahk")
+    LoadingGui["MyProgress"].Value := 87
+    Sleep "500"
+    Download("https://raw.githubusercontent.com/EffexDev/Buddy-Telco-Widget/refs/heads/main/Templates.ahk", A_WorkingDir . "\Templates.ahk")
+    LoadingGui["MyProgress"].Value := 100
+    Sleep "500"
+    Download("https://raw.githubusercontent.com/EffexDev/Buddy-Telco-Widget/refs/heads/main/config.ini", A_WorkingDir . "\config.ini")
+    LoadingGui.Destroy
+    MsgBox "Update Complete"
+    Reload
+}
