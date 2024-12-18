@@ -310,7 +310,7 @@ UpdateWidget(*) {
     LoadingGui.BackColor := "c007ba8"
     LoadingGui.SetFont("s10")
     LoadingGui.Show("w200 h50")
-    LoadingGui.Add("Progress", "w180 h20 cGreen vMyProgress", 0)
+    LoadingGui.Add("Progress", "y+20 w180 h20 cGreen vMyProgress", 0)
     LoadingGui["MyProgress"].Value := 40
     Sleep "500"
     Download("https://raw.githubusercontent.com/EffexDev/Buddy-Telco-Widget/refs/heads/main/Changelog.txt", A_WorkingDir . "\Changelog.txt")
