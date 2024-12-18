@@ -28,14 +28,20 @@ The main function, template generation is very simple to use:
 ### How to Use - QOL Tab
 
 Superlookup - Content aware search based on the text on the clipboard
+
 Notes - A pop out volatile notepad for writing notes or drafting replies
+
 Hotkeys - Pop out legend for any hotkeys that also have key combinations assigned to them
+
 Startup - Opens Slack, default browser, LiveChat
+
+
 Lock Terminal - Locks your terminal
 
 ### How to Use - Automations Tab
 
 Ping Test, Traceroute and NSLookup all run their respective tests using an IP address from your clipboard
+
 Prorata Calc opens a pop up section that can be used to calculate prorata credits for service closures
 
 ### How to Use - Useful Links Tab
@@ -45,9 +51,10 @@ The buttons on this tab simply open the websites that they are named for. This i
 ### How to Use - Options Tab
 
 Always on Top - Having this checked means that the widget will always appear over other windows
-Show Notepad - This will switch to the larger version of the widget that has the notes section built in rather than the popout version
-Darkmode - Applies the dark theme to the Widget and it's popout menus
 
+Show Notepad - This will switch to the larger version of the widget that has the notes section built in rather than the popout version
+
+Darkmode - Applies the dark theme to the Widget and it's popout menus
 
 
 ![signature](https://github.com/user-attachments/assets/80bb929b-364f-462d-9ade-44280237e436)
