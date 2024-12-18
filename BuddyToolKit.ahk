@@ -16,6 +16,7 @@ Global GeneralOTRSMap := Map()
 Global RedmineJiraMap := Map()
 Global PPMap := Map()
 Global FHMap := Map()
+Global ReconnectionMap := Map()
 Global FaultTemplatesMap := Map()
 Global DiscoveryMap := Map()
 Global SpeedsMap := Map()
@@ -145,6 +146,7 @@ Global ShowNotesButton := BuddyGui.Add("Checkbox", "yp x+20 vShowNotesButton").O
 ShowNotesButtonText := BuddyGui.Add("Text", "yp xp+20 c000000", "Show Notepad")
 Global DarkmodeButton := BuddyGui.Add("Checkbox", "yp x+20 vDarkModeButton ").OnEvent("Click", Darkmode)
 DarkmodeButtonText := BuddyGui.Add("Text", "yp xp+20 c000000", "Darkmode")
+Global UpdateButton := BuddyGui.Add("Button", "yp-5 x+180", "Update").OnEvent("Click", UpdateWidget)
 BuddyGui["NotePadEmbedded"].Visible := 0
 
 
@@ -154,7 +156,8 @@ global CustomerName := ""  ; Initialize at script level
 CustomerNameEdit(CustomerNameValue, *) {
     global CustomerName
     CustomerName := BuddyGui["CustomerNameValue"].Value
-    IniWrite(CustomerName, "config.ini", "Customer", "CustomerName")
+    global CustomerNameSanitised := RegExReplace(CustomerName, "[^a-zA-Z]", "")
+    IniWrite(CustomerNameSanitised, "config.ini", "Customer", "CustomerName")
     UpdateTemplates()
 }
 
