@@ -7,7 +7,7 @@
     Reload
 }
 
-VersionNumber := "3.6"
+VersionNumber := "3.7"
 
 Download("https://raw.githubusercontent.com/EffexDev/Buddy-Telco-Widget/refs/heads/main/version.ini", A_WorkingDir . "\version.ini")
 global VersionNumberCheck := IniRead("version.ini", "Version", "VersionNumber")
