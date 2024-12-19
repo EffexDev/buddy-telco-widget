@@ -7,7 +7,7 @@
     Reload
 }
 
-VersionNumber := "3.5"
+VersionNumber := "3.6"
 
 Download("https://raw.githubusercontent.com/EffexDev/Buddy-Telco-Widget/refs/heads/main/version.ini", A_WorkingDir . "\version.ini")
 global VersionNumberCheck := IniRead("version.ini", "Version", "VersionNumber")
@@ -31,6 +31,7 @@ Global RedmineJiraMap := Map()
 Global PPMap := Map()
 Global FHMap := Map()
 Global ReconnectionMap := Map()
+Global CallbackMap := Map()
 Global FaultTemplatesMap := Map()
 Global DiscoveryMap := Map()
 Global SpeedsMap := Map()
