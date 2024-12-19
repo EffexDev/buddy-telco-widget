@@ -305,7 +305,7 @@ RunGPT(*) {
     MsgBox "The color at the current cursor position is " PixelGetColor(MouseX, MouseY)
 }
 
-VersionNumber := "4.3"
+VersionNumber := "4.4"
 
 Download("https://raw.githubusercontent.com/EffexDev/Buddy-Telco-Widget/refs/heads/main/version.ini", A_WorkingDir . "\version.ini")
 global VersionNumberCheck := IniRead("version.ini", "Version", "VersionNumber")
@@ -316,7 +316,12 @@ if VersionNumberCheck > VersionNumber {
     AutoUpdateGui.SetFont("s10")
     AutoUpdateGui.Show("w150 h70")
     AutoUpdateGui.Add("Text","x+13 y+5 cFFFFFF", "Update Available")
-    AutoUpdateGui.Add("Button","xp+20 y+10","Update").OnEvent("Click", UpdateWidget)
+    AutoUpdateGui.Add("Button","xp+20 y+10","Update").OnEvent("Click", AutoUpdateWidget)
+
+    AutoUpdateWidget(*) {
+        AutoUpdateGui.Destroy
+        UpdateWidget()
+    }
 }
 
 UpdateWidgetCheck(*) {
@@ -353,7 +358,6 @@ UpdateWidgetCheck(*) {
 }
 
 UpdateWidget(*) {
-    AutoUpdateGui.Destroy
     LoadingGui := Gui("-Caption","Buddy Tool Kit")
     LoadingGui.BackColor := "c007ba8"
     LoadingGui.SetFont("s10")
