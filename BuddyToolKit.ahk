@@ -18,11 +18,7 @@ if VersionNumberCheck > VersionNumber {
     UpdateGui.SetFont("s10")
     UpdateGui.Show("w150 h70")
     UpdateGui.Add("Text","x+13 y+5 cFFFFFF", "Update Available")
-    UpdateGui.Add("Button","xp+20 y+10","Update").OnEvent("Click", UpdateWidget, CloseGui)
-
-    CloseGui(*) {
-        UpdateGui.Destroy
-    }
+    UpdateGui.Add("Button","xp+20 y+10","Update").OnEvent("Click", UpdateWidget)
 }
 
 IniWrite("xxx", "config.ini", "Customer", "CustomerName")
