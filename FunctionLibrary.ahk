@@ -332,6 +332,7 @@ UpdateWidgetCheck(*) {
 }
 
 UpdateWidget(*) {
+    UpdateGui.Destroy
     LoadingGui := Gui("-Caption","Buddy Tool Kit")
     LoadingGui.BackColor := "c007ba8"
     LoadingGui.SetFont("s10")
