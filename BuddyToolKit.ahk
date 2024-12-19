@@ -160,7 +160,7 @@ Global ShowNotesButton := BuddyGui.Add("Checkbox", "yp x+20 vShowNotesButton").O
 ShowNotesButtonText := BuddyGui.Add("Text", "yp xp+20 c000000", "Show Notepad")
 Global DarkmodeButton := BuddyGui.Add("Checkbox", "yp x+20 vDarkModeButton ").OnEvent("Click", Darkmode)
 DarkmodeButtonText := BuddyGui.Add("Text", "yp xp+20 c000000", "Darkmode")
-Global UpdateButton := BuddyGui.Add("Button", "yp-5 x+180", "Update").OnEvent("Click", UpdateWidget)
+Global UpdateButton := BuddyGui.Add("Button", "yp-5 x+180", "Update").OnEvent("Click", UpdateWidgetCheck)
 BuddyGui["NotePadEmbedded"].Visible := 0
 
 
