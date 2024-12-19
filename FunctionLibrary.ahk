@@ -312,22 +312,22 @@ UpdateWidget(*) {
     LoadingGui.Show("w200 h60")
     LoadingGui.Add("Text", "cFFFFFF", "Updating")
     LoadingGui.Add("Progress", " w180 h20 cGreen vMyProgress", 0)
-    LoadingGui["MyProgress"].Value := 20
+    LoadingGui["MyProgress"].Value := 14
     Sleep "500"
     Download("https://raw.githubusercontent.com/EffexDev/Buddy-Telco-Widget/refs/heads/main/Changelog.txt", A_WorkingDir . "\Changelog.txt")
-    LoadingGui["MyProgress"].Value := 47
+    LoadingGui["MyProgress"].Value := 28
     Sleep "500"
     Download("https://raw.githubusercontent.com/EffexDev/Buddy-Telco-Widget/refs/heads/main/BuddyToolKit.ahk", A_WorkingDir . "\BuddyToolKit.ahk")
-    LoadingGui["MyProgress"].Value := 63
+    LoadingGui["MyProgress"].Value := 42
     Sleep "500"
     Download("https://raw.githubusercontent.com/EffexDev/Buddy-Telco-Widget/refs/heads/main/FunctionLibrary.ahk", A_WorkingDir . "\FunctionLibrary.ahk")
-    LoadingGui["MyProgress"].Value := 78
+    LoadingGui["MyProgress"].Value := 56
     Sleep "500"
     Download("https://raw.githubusercontent.com/EffexDev/Buddy-Telco-Widget/refs/heads/main/Generate.ahk", A_WorkingDir . "\Generate.ahk")
-    LoadingGui["MyProgress"].Value := 15
+    LoadingGui["MyProgress"].Value := 70
     Sleep "1000"
     Download("https://raw.githubusercontent.com/EffexDev/Buddy-Telco-Widget/refs/heads/main/Settings.ahk", A_WorkingDir . "\Settings.ahk")
-    LoadingGui["MyProgress"].Value := 87
+    LoadingGui["MyProgress"].Value := 84
     Sleep "500"
     Download("https://raw.githubusercontent.com/EffexDev/Buddy-Telco-Widget/refs/heads/main/Templates.ahk", A_WorkingDir . "\Templates.ahk")
     LoadingGui["MyProgress"].Value := 100

@@ -13,7 +13,11 @@ Download("https://raw.githubusercontent.com/EffexDev/Buddy-Telco-Widget/refs/hea
 global VersionNumberCheck := IniRead("version.ini", "Version", "VersionNumber")
 
 if VersionNumberCheck > VersionNumber {
-      UpdateWidget()
+    UpdateGui := Gui("-Caption","Buddy Tool Kit")
+    UpdateGui.BackColor := "c007ba8"
+    UpdateGui.SetFont("s10")
+    UpdateGui.Show("w200 h60")
+    UpdateGui.Add("Button",,"Update").OnEvent("Click", UpdateWidget)
 }
 
 IniWrite("xxx", "config.ini", "Customer", "CustomerName")
