@@ -330,7 +330,13 @@ UpdateWidgetCheck(*) {
         CheckUpdateGui.Show("w150 h70")
         CheckUpdateGui.Add("Text","x+13 y+5 cFFFFFF", "Update Available")
         CheckUpdateButton := CheckUpdateGui.Add("Button","xp+20 y+10","Update")
-        CheckUpdateButton.OnEvent("Click", UpdateWidget)
+        CheckUpdateButton.OnEvent("Click", UpdateWidgetCheck)
+
+        UpdateWidgetCheck(*) {
+            CheckUpdateGui.Destroy
+            UpdateWidget()
+        }
+
     }
     else {
         CheckUpdateGui := Gui("-Caption +AlwaysOnTop","Buddy Tool Kit")
