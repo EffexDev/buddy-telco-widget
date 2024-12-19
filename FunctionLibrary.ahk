@@ -305,34 +305,51 @@ RunGPT(*) {
     MsgBox "The color at the current cursor position is " PixelGetColor(MouseX, MouseY)
 }
 
+VersionNumber := "3.7"
+
+Download("https://raw.githubusercontent.com/EffexDev/Buddy-Telco-Widget/refs/heads/main/version.ini", A_WorkingDir . "\version.ini")
+global VersionNumberCheck := IniRead("version.ini", "Version", "VersionNumber")
+
+if VersionNumberCheck > VersionNumber {
+    AutoUpdateGui := Gui("-Caption +AlwaysOnTop","Buddy Tool Kit")
+    AutoUpdateGui.BackColor := "c007ba8"
+    AutoUpdateGui.SetFont("s10")
+    AutoUpdateGui.Show("w150 h70")
+    AutoUpdateGui.Add("Text","x+13 y+5 cFFFFFF", "Update Available")
+    AutoUpdateGui.Add("Button","xp+20 y+10","Update").OnEvent("Click", UpdateWidget)
+}
+
 UpdateWidgetCheck(*) {
     Download("https://raw.githubusercontent.com/EffexDev/Buddy-Telco-Widget/refs/heads/main/version.ini", A_WorkingDir . "\version.ini")
     global VersionNumberCheck := IniRead("version.ini", "Version", "VersionNumber")
     
     if VersionNumberCheck > VersionNumber {
-        UpdateGui := Gui("-Caption +AlwaysOnTop","Buddy Tool Kit")
-        UpdateGui.BackColor := "c007ba8"
-        UpdateGui.SetFont("s10")
-        UpdateGui.Show("w150 h70")
-        UpdateGui.Add("Text","x+13 y+5 cFFFFFF", "Update Available")
-        UpdateGui.Add("Button","xp+20 y+10","Update").OnEvent("Click", UpdateWidget)
+        Global CheckUpdateGui := Gui("-Caption +AlwaysOnTop","Buddy Tool Kit")
+        CheckUpdateGui.BackColor := "c007ba8"
+        CheckUpdateGui.SetFont("s10")
+        CheckUpdateGui.Show("w150 h70")
+        CheckUpdateGui.Add("Text","x+13 y+5 cFFFFFF", "Update Available")
+        CheckUpdateButton := CheckUpdateGui.Add("Button","xp+20 y+10","Update")
+        CheckUpdateButton.OnEvent("Click", UpdateWidget)
+        CheckUpdateButton.OnEvent("Click", CloseGui)
     }
     else {
-        UpdateGui := Gui("-Caption +AlwaysOnTop","Buddy Tool Kit")
-        UpdateGui.BackColor := "c007ba8"
-        UpdateGui.SetFont("s10")
-        UpdateGui.Show("w150 h70")
-        UpdateGui.Add("Text","x+13 y+5 cFFFFFF", "You're up to date!")
-        UpdateGui.Add("Button","xp+28 y+10","Close").OnEvent("Click", CloseGui)
+        CheckUpdateGui := Gui("-Caption +AlwaysOnTop","Buddy Tool Kit")
+        CheckUpdateGui.BackColor := "c007ba8"
+        CheckUpdateGui.SetFont("s10")
+        CheckUpdateGui.Show("w150 h70")
+        CheckUpdateGui.Add("Text","x+13 y+5 cFFFFFF", "You're up to date!")
+        CheckUpdateGui.Add("Button","xp+28 y+10","Close").OnEvent("Click", CloseGui)
+    }
 
-        CloseGui(*) {
-            UpdateGui.Destroy
-        }
+    CloseGui(*) {
+        CheckUpdateGui.Destroy
     }
 }
 
 UpdateWidget(*) {
-    UpdateGui.Destroy
+    AutoUpdateGui.Destroy
+    CheckUpdateGui.Destroy
     LoadingGui := Gui("-Caption","Buddy Tool Kit")
     LoadingGui.BackColor := "c007ba8"
     LoadingGui.SetFont("s10")
