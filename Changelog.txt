@@ -67,3 +67,6 @@ From here all changes will be detailed.
 
 ------ Version 3.4 ------
 1. Added a Check for Updates button and an autoupdate function on launch that updates directly from my Github
+
+------ Version 4 ------
+Jumped to version 4 as this is technically now ready for Full CI/CD pipeline and distribution to Aussie
