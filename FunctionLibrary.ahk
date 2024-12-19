@@ -331,7 +331,6 @@ UpdateWidgetCheck(*) {
         CheckUpdateGui.Add("Text","x+13 y+5 cFFFFFF", "Update Available")
         CheckUpdateButton := CheckUpdateGui.Add("Button","xp+20 y+10","Update")
         CheckUpdateButton.OnEvent("Click", UpdateWidget)
-        CheckUpdateButton.OnEvent("Click", CloseGui)
     }
     else {
         CheckUpdateGui := Gui("-Caption +AlwaysOnTop","Buddy Tool Kit")
@@ -349,7 +348,6 @@ UpdateWidgetCheck(*) {
 
 UpdateWidget(*) {
     AutoUpdateGui.Destroy
-    CheckUpdateGui.Destroy
     LoadingGui := Gui("-Caption","Buddy Tool Kit")
     LoadingGui.BackColor := "c007ba8"
     LoadingGui.SetFont("s10")
