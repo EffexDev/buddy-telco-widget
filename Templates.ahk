@@ -22,11 +22,11 @@ csTitle:=StrTitle(csFirstName[0])
 CurrentDate := FormatTime(, "yyyyMMdd")
 NewDate := FormatTime(DateAdd(CurrentDate, 7, "days"), "dd/MM/yyyy")
 
-GeneralReasons := ["LiveChat","OTRS", "Redmine/Jira"]
-GeneralTemplates := [["Direct Link"],["Charges", "Closure", "Debit Validation Failed"],["Redmine Bug", "Redmine Enhancement"]]
+GeneralReasons := ["LiveChat","OTRS", "Redmine/Jira", "Callback"]
+GeneralTemplates := [["Direct Link"],["Charges", "Closure", "Debit Validation Failed"],["Redmine Bug", "Redmine Enhancement"], ["No Answer"]]
 
-AccountReasons := ["Payment Plan", "Financial Hardship"]
-AccountTemplates := [["Set Up","Confirmation", "Payment Options", "Update Details"],["Template"]]
+AccountReasons := ["Payment Plan", "Financial Hardship", "Reconnection"]
+AccountTemplates := [["Set Up","Confirmation", "Payment Options", "Update Details"],["Template"],["Terms Set", "No Reconnection"]]
 
 FaultReasons := ["General Templates","NBN","General Hardware","Discovery","Slow Speeds", "Dropouts", "No Connection", "Service Setup", "CSP Linking", "Hardware"]
 FaultTemplates := [["Titles", "Warning", "Closing", "Checking in", "SRA/SOS/ROC"],["Raise", "Booked Appt"],["Resets", "Router Swap"],["General Issue", "Slow Speeds", "Dropouts", "No Connection"],["Direct Connection", "Wifi Limitations", "Bandsteering", "Line Rates"],["Bandsteering", "Stability Profile", "SRA", "Cabling"],["UNI-D Port", "Outage"],["VDSL", "EWAN"],["NBN", "Tracking"],["Local Issue", "Cabling"]]
@@ -52,6 +52,8 @@ UpdateTemplates() {
         "Redmine/Jira", RedmineJiraMap,
         "Payment Plan", PPMap,
         "Financial Hardship", FHMap,
+        "Reconnection", ReconnectionMap,
+        "Callback", CallbackMap,
         "General Templates",FaultTemplatesMap,
         "Discovery", DiscoveryMap,
         "Slow Speeds", SpeedsMap,
@@ -114,6 +116,10 @@ UpdateTemplates() {
         "Redmine Enhancement", "Title : [Area of improvement] | [Change suggestion]`n`nTicket Body:`n`nHey Team,`n`nI would like to suggest the following change to [Insert System/Process]`n`n**Current process:**`n[Outline the current process and how it is completed including all steps]`n`n**Existing blockers/hurdles:**`n[Explain your issues with the current system and what causes it to take longer/be harder than it could be. Be unbiased and professional, these systems were written by a human]`n`n**Change information:**`n[Write out the change that you think should be implemented. Be as detailed as required to accurately explain the change you would like to see]`n`n**Business benefits:**`n[Why is this change worth it? Consider the dev time, wage cost and any potential downsides to the change. What value does this change add to the company and how does it improve the workflow of the staff who interact with the system]`n`n**Related Pages:**`n[Does this affect more than just the system being changed? If so link the pages or systems that would be affected]"
     )
 
+    Global CallbackMap := Map(
+        "No Answer", "Hey " CustomerNameSanitised ",`n`nWe hope this message finds you well.`n`nWe tried to return your call today but were unable to reach you. Please let us know if you would like us to lodge another call back, and if so, your preferred date and time within our operating hours.`n`nAlternatively, please come through to our live chat team for assistance.`n`nIf you have any questions, you can reach out here or just hop on our live chat, and our friendly team will assist you in no time. We're available Monday to Friday, from 12PM to 8PM AEDT.`n`nRegards,`n" csTitle ""
+    )
+
     ; --------------- Accounts ----------------
 
     Global PPMap := Map(
@@ -128,6 +134,12 @@ UpdateTemplates() {
 
     Global FHMap := Map(
         "Template", "Hi [Customer],`n`nThank you for submitting your application for financial hardship payment assistance. To progress your application, we will require you to provide some supporting information to assess your eligibility.`n`nThis can be in the form of:`nIncome statement`nExpense statement`nDocumentation from a financial counsellor`nOther documentation showing circumstances related to financial hardship`n`nYou can respond to this email with your documents or send them to hardship@buddytelco.com.au`n`nWe will consider any documents relating to income, statements from advisors and your past payment history with us when we make an assessment.`n`nWe only request this information when it is necessary for us to assess eligibility. We will only retain a copy or record of any information you provide us, for as long is required to complete our assessment of your application. We may not be able to assess your circumstances if you don't provide us with the requested information. However, we also understand that sometimes (for example, if you are experiencing domestic or family violence) you may not be able to provide documents.`n`nWe're here to help. Give us a call to discuss your application with one of our Financial Hardship Officers by phone on 1300 028 339 (12pm to 8pm AEDT).",
+    )
+
+    Global ReconnectionMap := Map(
+        "Terms Set", "Reconnection Terms`n`n------------------------------`n`nHey " CustomerName ",`n`nThanks for reaching out, our team has updated your account with the reconnection terms.To proceed with reconnecting your service, the following conditions would need to be agreed upon:`n`n1. Full payment of the [Amount] currently owing on the account.`n2. A 6-Month Credit Watch: Our Accounts Team will monitor the account to ensure timely payments are made, If payments are missed the account may be subject to termination.`n3. Two Months Payment in Advance: If you were to sign up for the [plan speed] plan, an upfront payment of [2 months service price] will be required. This amount will be added as a credit to your account and uses against your first 2 invoices.`n`nIf you agree to these terms, please confirm your acceptance of the 6-Month Credit Watch and arrange for the advance payment. You will also need to make the full payment of current owing amount of [Insert owing amount]. Once the payment is processed, we will contact our Accounts Team to remove the ban listing, enabling you to reconnect your service.`n`nIf you have any questions or need further clarification, please don’t hesitate to reach out.`n`nRegards,`n" csTitle "",
+
+        "No Reconnection", "Reconnection Request`n`n------------------------------`n`nHey " CustomerName "`n`nJust getting in touch after you reached out to request a banlist removal.`n`nWe have raised your reconnection enquiry with our Accounts Receivable team who have assessed the request and have advised we are unable to provide you with a service. `n`nYou are still able to seek connection with other providers. Our decision not to connect you is purely based on internal listings and does not affect your ability to connect a service with another ISP.`n`nUnfortunately this is not be the outcome I was hoping for but we do need to respect the decision that is made. I apologies we can't connect you and I wish you the best of luck in the future.`n`nRegards,`n" csTitle "",
     )
 
     ;------------------- Faults -----------------------
