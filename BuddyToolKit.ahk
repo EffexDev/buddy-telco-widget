@@ -13,7 +13,7 @@ Download("https://raw.githubusercontent.com/EffexDev/Buddy-Telco-Widget/refs/hea
 global VersionNumberCheck := IniRead("version.ini", "Version", "VersionNumber")
 
 if VersionNumberCheck > VersionNumber {
-    UpdateGui := Gui("-Caption","Buddy Tool Kit")
+    UpdateGui := Gui("-Caption +AlwaysOnTop","Buddy Tool Kit")
     UpdateGui.BackColor := "c007ba8"
     UpdateGui.SetFont("s10")
     UpdateGui.Show("w150 h70")
