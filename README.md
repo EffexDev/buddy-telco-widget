@@ -39,4 +39,7 @@ The buttons on this tab simply open the websites that they are named for. This i
 Always on Top - Having this checked means that the widget will always appear over other windows
 Show Notepad - This will switch to the larger version of the widget that has the notes section built in rather than the popout version
 Darkmode - Applies the dark theme to the Widget and it's popout menus
+
 ![signature](https://github.com/user-attachments/assets/80bb929b-364f-462d-9ade-44280237e436)
+
+
