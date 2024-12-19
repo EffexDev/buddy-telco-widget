@@ -315,7 +315,7 @@ UpdateWidgetCheck(*) {
         UpdateGui.SetFont("s10")
         UpdateGui.Show("w150 h70")
         UpdateGui.Add("Text","x+13 y+5 cFFFFFF", "Update Available")
-        UpdateGui.Add("Button","xp+20 y+10","Update").OnEvent("Click", UpdateWidget)
+        UpdateGui.Add("Button","xp+28 y+10","Update").OnEvent("Click", UpdateWidget)
     }
     else {
         UpdateGui := Gui("-Caption +AlwaysOnTop","Buddy Tool Kit")
@@ -323,7 +323,7 @@ UpdateWidgetCheck(*) {
         UpdateGui.SetFont("s10")
         UpdateGui.Show("w150 h70")
         UpdateGui.Add("Text","x+13 y+5 cFFFFFF", "You're up to date!")
-        UpdateGui.Add("Button","xp+20 y+10","Close").OnEvent("Click", CloseGui)
+        UpdateGui.Add("Button","xp+28 y+10","Close").OnEvent("Click", CloseGui)
 
         CloseGui(*) {
             UpdateGui.Destroy
