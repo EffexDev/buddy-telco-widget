@@ -64,3 +64,6 @@ From here all changes will be detailed.
 4. Fixed a bug where having tabs/spaces/symbols in the customer name field it would cause the template to generate in unexpected places
 5. Added some check in templates for CSP faults so we can let people know we are still monitoring/investigating/waiting etc.
 6. Adjusted the starting position of the gui so that it played nicely with landscape monitors instead of my vertical
+
+------ Version 3.4 ------
+1. Added a Check for Updates button and an autoupdate function on launch that updates directly from my Github
