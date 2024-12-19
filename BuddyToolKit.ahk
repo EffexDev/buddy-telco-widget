@@ -7,6 +7,15 @@
     Reload
 }
 
+VersionNumber := "3.3"
+
+Download("https://raw.githubusercontent.com/EffexDev/Buddy-Telco-Widget/refs/heads/main/version.ini", A_WorkingDir . "\version.ini")
+global VersionNumberCheck := IniRead("version.ini", "Version", "VersionNumber")
+
+if VersionNumberCheck > VersionNumber {
+      UpdateWidget()
+}
+
 IniWrite("xxx", "config.ini", "Customer", "CustomerName")
 
 Global LiveChatMap := Map()
