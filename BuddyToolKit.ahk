@@ -18,7 +18,11 @@ if VersionNumberCheck > VersionNumber {
     UpdateGui.SetFont("s10")
     UpdateGui.Show("w150 h70")
     UpdateGui.Add("Text","x+13 y+5 cFFFFFF", "Update Available")
-    UpdateGui.Add("Button","xp+20 y+10","Update").OnEvent("Click", UpdateWidget)
+    UpdateGui.Add("Button","xp+20 y+10","Update").OnEvent("Click", UpdateWidget, CloseGui)
+
+    CloseGui(*) {
+        UpdateGui.Destroy
+    }
 }
 
 IniWrite("xxx", "config.ini", "Customer", "CustomerName")
@@ -160,7 +164,7 @@ Global ShowNotesButton := BuddyGui.Add("Checkbox", "yp x+20 vShowNotesButton").O
 ShowNotesButtonText := BuddyGui.Add("Text", "yp xp+20 c000000", "Show Notepad")
 Global DarkmodeButton := BuddyGui.Add("Checkbox", "yp x+20 vDarkModeButton ").OnEvent("Click", Darkmode)
 DarkmodeButtonText := BuddyGui.Add("Text", "yp xp+20 c000000", "Darkmode")
-Global UpdateButton := BuddyGui.Add("Button", "yp-5 x+180", "Update").OnEvent("Click", UpdateWidgetCheck)
+Global UpdateButton := BuddyGui.Add("Button", "yp-5 x+180", "Update").OnEvent("Click", UpdateWidget)
 BuddyGui["NotePadEmbedded"].Visible := 0
 
 
