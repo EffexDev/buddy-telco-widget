@@ -389,3 +389,18 @@ UpdateWidget(*) {
     MsgBox "Update Complete"
     Reload
 }
+
+Download("https://raw.githubusercontent.com/EffexDev/Buddy-Telco-Widget/refs/heads/main/whitelist.ini", A_WorkingDir . "\whitelist.ini")
+
+CurrentUser := A_UserName
+
+Whitelist := IniRead("whitelist.ini", "Whitelist")
+
+if !InStr(Whitelist, CurrentUser) {
+    BuddyGui.Destroy
+    MsgBox "User not on whitelist."
+    FileDelete(A_WorkingDir . "\whitelist.ini")
+}
+else {
+    FileDelete(A_WorkingDir . "\whitelist.ini")
+}
