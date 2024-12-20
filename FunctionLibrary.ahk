@@ -305,7 +305,7 @@ RunGPT(*) {
     MsgBox "The color at the current cursor position is " PixelGetColor(MouseX, MouseY)
 }
 
-VersionNumber := "4"
+VersionNumber := "4.1"
 
 Download("https://raw.githubusercontent.com/EffexDev/Buddy-Telco-Widget/refs/heads/main/version.ini", A_WorkingDir . "\version.ini")
 global VersionNumberCheck := IniRead("version.ini", "Version", "VersionNumber")
