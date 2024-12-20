@@ -305,7 +305,7 @@ RunGPT(*) {
     MsgBox "The color at the current cursor position is " PixelGetColor(MouseX, MouseY)
 }
 
-VersionNumber := "4.1"
+VersionNumber := "4.2"
 
 Download("https://raw.githubusercontent.com/EffexDev/Buddy-Telco-Widget/refs/heads/main/version.ini", A_WorkingDir . "\version.ini")
 global VersionNumberCheck := IniRead("version.ini", "Version", "VersionNumber")
@@ -387,20 +387,10 @@ UpdateWidget(*) {
     Download("https://raw.githubusercontent.com/EffexDev/Buddy-Telco-Widget/refs/heads/main/config.ini", A_WorkingDir . "\config.ini")
     LoadingGui.Destroy
     MsgBox "Update Complete"
+    Run "Changelog.txt"
     Reload
 }
 
-Download("https://raw.githubusercontent.com/EffexDev/Buddy-Telco-Widget/refs/heads/main/whitelist.ini", A_WorkingDir . "\whitelist.ini")
-
-CurrentUser := A_UserName
-
-Whitelist := IniRead("whitelist.ini", "Whitelist")
-
-if !InStr(Whitelist, CurrentUser) {
-    BuddyGui.Destroy
-    MsgBox "User not on whitelist."
-    FileDelete(A_WorkingDir . "\whitelist.ini")
-}
-else {
-    FileDelete(A_WorkingDir . "\whitelist.ini")
+!z:: {
+    ExitApp
 }
