@@ -1,3 +1,6 @@
 ------ Version 4.2 ------
 1. Jumped to version 4 as this is technically now ready for Full CI/CD pipeline
 2. Changlog now only shows current version and will open when the script has updated
+3. Changed taskbar, system tray and alt tab icons to the Buddy logo
+4. Commented functions
+

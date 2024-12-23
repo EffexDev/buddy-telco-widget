@@ -218,15 +218,16 @@ Startup(*)
         }
 }
 
+; Easter Egg
 WhatTheDogDoin(*) {
     ToolTip("I don't talk")
     SetTimer () => ToolTip(), -2000
 }
 
+; Grab the customer name out of the form
 SaveCustomerName(ctrl, *)
 {
     Global ShowNotesButton
-    ; Takes the options submitted from the dropdowns and saves them to an array called "Saved"
     Saved:= BuddyGui.Submit(False)
 
     Global Customer := Saved.CustomerName
@@ -270,6 +271,7 @@ csTitle:=StrTitle(csFirstName[0])
     Dice:= Random(1,4)   
 }
 
+; Useful links button functions
 RunCMS(*) {
     Run "https://cms.aussiebroadband.com.au/"
 }
@@ -299,12 +301,14 @@ RunGPT(*) {
     Run "https://chatgpt.com/"
 }
 
-^!z::  ; Control+Alt+Z hotkey.
+; Mostly for debugging/consistent. SHows you the hex code of the color under your mouse
+^!z:: 
 {
     MouseGetPos &MouseX, &MouseY
     MsgBox "The color at the current cursor position is " PixelGetColor(MouseX, MouseY)
 }
 
+; Everything below this is the update functions
 VersionNumber := "4.2"
 
 Download("https://raw.githubusercontent.com/EffexDev/Buddy-Telco-Widget/refs/heads/main/version.ini", A_WorkingDir . "\version.ini")
