@@ -65,18 +65,13 @@ HotkeysGui.BackColor := "c007ba8"
 Global BuddyGui := Gui("-Caption +Border","Buddy Tool Kit V2.0")
 BuddyGui.BackColor := "c007ba8"
 BuddyGui.Add("Picture", "ym+10 x+20 w180 h-1","BuddyLogo.png")
-DogImage := BuddyGui.Add("Picture", "ym xm+480 ym+10 w-1 h80","BuddyPC.png")
+DogImage := BuddyGui.Add("Picture", "ym xm+480 ym+10 w-1 h90","BuddyPC.png")
 DogImage.OnEvent("Click", WhatTheDogDoin)
 BuddyGui.SetFont("s10 c000000","Nunito")
 BuddyGui.Add("Text", " xm cFFFFFF" , "Customer Name:")
 Global CustomerNameField := BuddyGui.Add("Edit", "yp-3 xm+105 w150 vCustomerNameValue", "").OnEvent("Change", CustomerNameEdit)
 TemplateTab := BuddyGui.Add("Tab3","xm h70 w610 BackgroundWhite", ["General", "Accounts", "Faults","Order Support","Complaints","T and Cs"])
 ToolsTab := BuddyGui.Add("Tab3", "WP h80 BackgroundWhite c222222 vToolsTab", ["QOL", "Automations", "Useful Links", "Options"])
-
-; Set the SystemTray, Taskbar and Alt tab icons to Buddy
-if !FileExist("TaskBarIcon.ico") {
-    Download("https://raw.githubusercontent.com/EffexDev/Buddy-Telco-Widget/refs/heads/main/TaskBarIcon.ico", A_WorkingDir . "\TaskBarIcon.ico")
-}
 
 iconsize := 32
 hIcon := LoadPicture("TaskBarIcon.ico", "Icon1 w" iconsize " h" iconsize, &imgtype)
