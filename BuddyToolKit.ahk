@@ -72,7 +72,17 @@ Global CustomerNameField := BuddyGui.Add("Edit", "yp-3 xm+105 w150 vCustomerName
 TemplateTab := BuddyGui.Add("Tab3","xm h70 w610 BackgroundWhite", ["General", "Accounts", "Faults","Order Support","Complaints","T and Cs"])
 ToolsTab := BuddyGui.Add("Tab3", "WP h80 BackgroundWhite c222222 vToolsTab", ["QOL", "Automations", "Useful Links", "Options"])
 
+if !FileExist("TaskBarIcon.ico") {
+    Download("https://raw.githubusercontent.com/EffexDev/Buddy-Telco-Widget/refs/heads/main/TaskBarIcon.ico", A_WorkingDir . "\TaskBarIcon.ico")
+}
+
+iconsize := 32
+hIcon := LoadPicture("TaskBarIcon.ico", "Icon1 w" iconsize " h" iconsize, &imgtype)
+SendMessage(0x0080, 0, hIcon, BuddyGui)
+SendMessage(0x0080, 1, hIcon, BuddyGui) 
 BuddyGui.Show("x1920 y0 w630")
+
+TraySetIcon(A_ScriptDir "\TaskBarIcon.ico")    ; System tray icon
 
 ;DO NOT REMOVE
 Send "xxx"
