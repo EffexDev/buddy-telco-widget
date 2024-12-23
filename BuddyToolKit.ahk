@@ -65,7 +65,7 @@ HotkeysGui.BackColor := "c007ba8"
 Global BuddyGui := Gui("-Caption +Border","Buddy Tool Kit V2.0")
 BuddyGui.BackColor := "c007ba8"
 BuddyGui.Add("Picture", "ym+10 x+20 w180 h-1","BuddyLogo.png")
-DogImage := BuddyGui.Add("Picture", "ym xm+480 ym+10 w-1 h90","BuddyPC.png")
+DogImage := BuddyGui.Add("Picture", "ym xm+480 ym w-1 h90","BuddyPC.png")
 DogImage.OnEvent("Click", WhatTheDogDoin)
 BuddyGui.SetFont("s10 c000000","Nunito")
 BuddyGui.Add("Text", " xm cFFFFFF" , "Customer Name:")
