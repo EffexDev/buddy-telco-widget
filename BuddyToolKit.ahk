@@ -1,12 +1,13 @@
 #Requires AutoHotkey v2.0
 #Include Templates.ahk
 
-; ALt-F1 to entirely reload the script. This is mostly for testing and debugging.
+; Hotkey to reload the script. I mostly use this for debugging and testing
 !F1::
 {
     Reload
 }
 
+;Below is just the variable declations for the template maps to be global, as well as setting the customername field. Ig it is not set you might accidentally pout the wrong customers name in
 IniWrite("xxx", "config.ini", "Customer", "CustomerName")
 
 Global LiveChatMap := Map()
@@ -47,11 +48,11 @@ Global TCSBillingMap := Map()
 Global TCSSuspensionMap := Map()
 Global TCSChangesMap := Map()
 
-; Declarations of global variables. This is used to make the popout visible to other functions
 Global NotesGui := Gui(,"Notepad"), Notes := NotesGui.Add("Edit", "h600 w685", "")
 Global TemplatesGui := Gui(,"Templates"), Templates := TemplatesGui.Add("Edit", "h600 w685", "")
 Global HotkeysGui := Gui(,"Useful Links"), Hotkeys := HotkeysGui.Add("Text", "+Wrap h230 cFFFFFF", "Available Hotkeys:`n`n@@ - Your email`n`n~~ - Date 7 calendar days from now. For abandoment comms`n`nCTRL+Shift+S - Randomized signature for app faults. Also checks the publish to app checkbox`n`nCTRL+DEL - Content aware search ie. Superlookup")
 
+; Making all of the popout GUIs consistent
 Hotkeys.SetFont("s10","Nunito")
 Notes.SetFont("s10","Nunito")
 Templates.SetFont("s10","Nunito")
@@ -72,6 +73,7 @@ Global CustomerNameField := BuddyGui.Add("Edit", "yp-3 xm+105 w150 vCustomerName
 TemplateTab := BuddyGui.Add("Tab3","xm h70 w610 BackgroundWhite", ["General", "Accounts", "Faults","Order Support","Complaints","T and Cs"])
 ToolsTab := BuddyGui.Add("Tab3", "WP h80 BackgroundWhite c222222 vToolsTab", ["QOL", "Automations", "Useful Links", "Options"])
 
+; Set the SystemTray, Taskbar and Alt tab icons to Buddy
 if !FileExist("TaskBarIcon.ico") {
     Download("https://raw.githubusercontent.com/EffexDev/Buddy-Telco-Widget/refs/heads/main/TaskBarIcon.ico", A_WorkingDir . "\TaskBarIcon.ico")
 }
@@ -82,9 +84,9 @@ SendMessage(0x0080, 0, hIcon, BuddyGui)
 SendMessage(0x0080, 1, hIcon, BuddyGui) 
 BuddyGui.Show("x1920 y0 w630")
 
-TraySetIcon(A_ScriptDir "\TaskBarIcon.ico")    ; System tray icon
+TraySetIcon(A_ScriptDir "\TaskBarIcon.ico") 
 
-;DO NOT REMOVE
+;DO NOT REMOVE it will break stuff
 Send "xxx"
 
 ;First set of tabs, for department selection to segregate templates and keep things organised. This grabs the options selected in both dropdowns and saves them into a variable to be used later.
@@ -126,7 +128,7 @@ SelTCSReason.OnEvent('Change', SelTCSReasonSelected)
 SelTCSTemplate := BuddyGui.AddDropDownList("yp w200 r20 BackgroundFFFFFF vPickedTCS", TCSTemplates[SelTCSReason.Value])
 GenerateFault := BuddyGui.Add("Button", "yp", "Generate").OnEvent("Click", RunTCS)
 
-; The tools tab. Controls the bottom set of tabs and the content of them. Functions are below
+; The tools tab. Controls the bottom set of tabs and the content of them. Functions are in the FunctionsLibrary file
 ToolsTab.UseTab(1)
 Superlookup := BuddyGui.Add("Button","xm+15 y245 vSuperlookup", "Superlookup").OnEvent("Click", ProcessSuperlookup)
 BuddyGui.Add("Button", "yp w90", "Notes").OnEvent("Click", NotePad)
@@ -160,10 +162,8 @@ DarkmodeButtonText := BuddyGui.Add("Text", "yp xp+20 c000000", "Darkmode")
 Global UpdateButton := BuddyGui.Add("Button", "yp-5 x+120", "Check for Updates").OnEvent("Click", UpdateWidgetCheck)
 BuddyGui["NotePadEmbedded"].Visible := 0
 
-
-; This section controls cascading dropdowns. It will clear the second dropdown field and replace it when the first is altered. This allows you to have multiple categories per department.
-global CustomerName := ""  ; Initialize at script level
-
+; Customer name edit field. This is sanitised because tabs and symbols can cause output generation errors
+global CustomerName := ""  
 CustomerNameEdit(CustomerNameValue, *) {
     global CustomerName
     CustomerName := BuddyGui["CustomerNameValue"].Value
@@ -172,6 +172,7 @@ CustomerNameEdit(CustomerNameValue, *) {
     UpdateTemplates()
 }
 
+; Logic for cascading dropdowns
 SelGeneralReasonSelected(*) 
 {
     SelGeneralTemplate.Delete()
