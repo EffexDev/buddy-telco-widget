@@ -309,7 +309,7 @@ RunGPT(*) {
 }
 
 ; Everything below this is the update functions
-VersionNumber := "4.2"
+VersionNumber := "4.3"
 
 Download("https://raw.githubusercontent.com/EffexDev/Buddy-Telco-Widget/refs/heads/main/version.ini", A_WorkingDir . "\version.ini")
 global VersionNumberCheck := IniRead("version.ini", "Version", "VersionNumber")
