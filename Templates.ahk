@@ -35,7 +35,7 @@ DeliveryReasons := ["HFC", "FTTP", "FTTC", "Validation", "Banlisting", "Payment 
 DeliveryTemplates := [["Day 1","Day 2", "Day 3", "Multiple NTDs","Signal Issue"],["Multiple UNI-D"],["Day 1","Day 2", "Day 3", "Connect Router"],["Day 1","Day 2", "Day 3"],["Day 1"],["Day 1", "Day 2"],["Day 1","Day 2", "Day 3"],["NTD/Address Mismatch", "FTTP - Rebuild", "FTTN/B - SC12 No CPI", "FTTN/B - SC13 No CPI", "FTTN/B - FNN/ULL Dispute", "FTTN/B - Rebuild", "FTTN/B - POTS Rejection", "HFC - Urgent Completion", "HFC - Remote Activation", "HFC - Multiple NTDs", "Order Escalation"], ["TC4", "In-Flight Order", "In-Flight Fibre Connect", "Duplicate"]]
 
 ComplaintReasons := ["NBN Complaints", "Raising", "Clarification", "Resolutions", "State Changes", "TIO", "Contacts"]
-ComplaintTemplates := [["Templates"],["Templates"],["Templates"],["Templates"],["Changing PRD"],["Templates"],["SMS", "Email", "5 Attempts"]]
+ComplaintTemplates := [["Templates"],["Templates"],["Templates"],["Templates"],["Changing PRD"],["Templates"],["TIO Footer","SMS", "Email", "5 Attempts"]]
 
 TCSReasons := ["General","Billing", "Suspension/Termination", "Changes"]
 TCSTemplates := [["Availability", "Maintenance", "Support", "EU Obligations", "Data", "Access", ],["Fees", "Payment Methods", "Disputes", "Debit Dishonours", "Further Actions","Other Fees"],["Service Use", "Poor Behaviour", "Payment Issues"],["TOS Changes"]]
@@ -321,6 +321,8 @@ UpdateTemplates() {
         "Templates", "Dear " CustomerNameSanitised ",`n`nIf you are unsatisfied with our response to your complaint and you wish to seek external dispute resolution, you may do so via the Telecommunications Industry Ombudsman.`nThe Telecommunications Industry Ombudsman can be contacted by:`n`nPhone: 1800 062 058`nFax: 1800 630 614`nOnline: http://www.tio.com.au/making-a-complaint`n`n------------------------------`n`nDear " CustomerNameSanitised ",`n`nI invite you to respond to this email within 10 working days. If we do not receive a response within 10 working days, the matter will be considered resolved and your complaint will be closed.`n`nIf your Ombudsman case progresses further we will receive notification from the Ombudsman and your complaint will be reopened and addressed accordingly.",
         )
     Global ContactsMap := Map(
+        "TIO Footer", "If at any point you are unsatisfied with our handling of your complaint, its progress or outcome, you may opt to seek external dispute resolution via an external dispute resolution provider such as the Telecommunications Industry Ombudsman.`n`nThe Telecommunications Industry Ombudsman can be contacted by:`nPhone: 1800 062 058`nFax: 1800 630 614",
+
         "SMS", "Hey " CustomerNameSanitised ", it's the Buddy Telco Complaints Team. Just reaching out to see if you had a chance to read the email that was sent to you in regards to your active complaint. Please get back to us when you are able to.",
 
         "Email", "Buddy Telco - Complaint #XXX`n`n------------------------------`n`nHey " CustomerNameSanitised ", `n`nIt is " csTitle " from the Buddy Telco complaints team. `n`nI just wanted to reach out as we have not heard back from you regarding your complaint. `n`nPlease reach out when you have a chance as we would like to work together with you to reach a resolution. If the previously mentioned offer is acceptable, please let us know and we will take action.",

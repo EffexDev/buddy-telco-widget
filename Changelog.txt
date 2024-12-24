@@ -1,5 +1,3 @@
------- Version 4.4 ------
-1. Made the dog smooth
-2. Made the logo smooth
-3. Made loading bar smoother
-4. Fixed bug where clicking the update button twice makes the gui unclosable
+------ Version 4.5 ------
+1. Made the notepad resizable
+2. Added TIO Footer under complaints > Contacts > TIO Footer
