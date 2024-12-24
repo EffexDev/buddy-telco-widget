@@ -7,7 +7,7 @@
     Reload
 }
 
-;Below is just the variable declations for the template maps to be global, as well as setting the customername field. Ig it is not set you might accidentally pout the wrong customers name in
+;Below is just the variable declarations for the template maps to be global, as well as setting the customername field. Ig it is not set you might accidentally pout the wrong customers name in
 IniWrite("xxx", "config.ini", "Customer", "CustomerName")
 
 Global LiveChatMap := Map()
