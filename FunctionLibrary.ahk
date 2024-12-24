@@ -104,14 +104,27 @@ ProRataCalc(*) {
 Notepad(DarkmodeButton, *) {
     Global NotesGui, Notes    
 
-    if !NotesGui {  ; Only create a new GUI if it doesn't exist    
-        NotesGui := Gui(,"Notepad")
-        NotesGui.SetFont("s10","Nunito")
-        NotesGui.BackColor := "c007ba8"
-        Notes := NotesGui.Add("Edit", "h600 w685", "")
+    NotesGui := Gui("+Resize", "Notepad")
+    NotesGui.SetFont("s10", "Nunito")
+    NotesGui.BackColor := "c007ba8"
+    
+    ; Create the edit control
+    Notes := NotesGui.Add("Edit", "w700 h600", "")
+    
+    ; Set up the OnResize event
+    NotesGui.OnEvent("Size", ResizeGui)
+
+    ResizeGui(*) {
+        ; Get the current width and height of the GUI
+        NotesGui.GetPos(&x,&y,&GuiWidth,&GuiHeight)
         
-        NotesGui.OnEvent("Close", (*) => (NotesGui := "", Notes := ""))
+        ; ; Resize the edit control to fit the GUI
+        Notes.Move(10,10,GuiWidth-35,GuiHeight-60)  
+
     }
+    
+    NotesGui.OnEvent("Close", (*) => (NotesGui := "", Notes := ""))
+    
     NotesGui.Show("w710 h620")
 }
 
@@ -309,7 +322,7 @@ RunGPT(*) {
 }
 
 ; Everything below this is the update functions
-VersionNumber := "4.4"
+VersionNumber := "4.5"
 
 Download("https://raw.githubusercontent.com/EffexDev/Buddy-Telco-Widget/refs/heads/main/version.ini", A_WorkingDir . "\version.ini")
 global VersionNumberCheck := IniRead("version.ini", "Version", "VersionNumber")
