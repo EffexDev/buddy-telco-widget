@@ -389,6 +389,7 @@ UpdateWidget(*) {
     LoadingGui["MyProgress"].Value := 24
     Sleep "500"
     Download("https://i.imgur.com/a8neftp.png", A_WorkingDir . "\BuddyPC.png")
+    Download("https://raw.githubusercontent.com/EffexDev/Buddy-Telco-Widget/refs/heads/main/TaskBarIcon.ico", A_WorkingDir . "\TaskBarIcon.ico")    
     LoadingGui["MyProgress"].Value := 36
     Sleep "500"
     Download("https://raw.githubusercontent.com/EffexDev/Buddy-Telco-Widget/refs/heads/main/FunctionLibrary.ahk", A_WorkingDir . "\FunctionLibrary.ahk")
