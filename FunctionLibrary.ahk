@@ -385,10 +385,10 @@ UpdateWidget(*) {
     LoadingGui.Add("Progress", " w180 h20 cGreen vMyProgress", 0)
     LoadingGui["MyProgress"].Value := 12
     Sleep "500"
-    Download("https://imgur.com/Wc3mFxt", A_WorkingDir . "\BuddyLogo.png")
+    Download("https://i.imgur.com/7AosDLJ.png", A_WorkingDir . "\BuddyLogo.png")
     LoadingGui["MyProgress"].Value := 24
     Sleep "500"
-    Download("https://imgur.com/9BnOG3F", A_WorkingDir . "\BuddyPC.png")
+    Download("https://i.imgur.com/a8neftp.png", A_WorkingDir . "\BuddyPC.png")
     LoadingGui["MyProgress"].Value := 36
     Sleep "500"
     Download("https://raw.githubusercontent.com/EffexDev/Buddy-Telco-Widget/refs/heads/main/FunctionLibrary.ahk", A_WorkingDir . "\FunctionLibrary.ahk")
