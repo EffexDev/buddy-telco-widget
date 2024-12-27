@@ -385,10 +385,11 @@ UpdateWidget(*) {
     LoadingGui.Add("Progress", " w180 h20 cGreen vMyProgress", 0)
     LoadingGui["MyProgress"].Value := 12
     Sleep "500"
-    Download("https://raw.githubusercontent.com/EffexDev/Buddy-Telco-Widget/refs/heads/main/Changelog.txt", A_WorkingDir . "\Changelog.txt")
+    Download("https://raw.githubusercontent.com/EffexDev/Buddy-Telco-Widget/refs/heads/main/BuddyLogo.png", A_WorkingDir . "\BuddyLogo.png")
+    
     LoadingGui["MyProgress"].Value := 24
     Sleep "500"
-    Download("https://raw.githubusercontent.com/EffexDev/Buddy-Telco-Widget/refs/heads/main/BuddyToolKit.ahk", A_WorkingDir . "\BuddyToolKit.ahk")
+    Download("https://raw.githubusercontent.com/EffexDev/Buddy-Telco-Widget/refs/heads/main/BuddyPC.png", A_WorkingDir . "\BuddyPC.png")
     LoadingGui["MyProgress"].Value := 36
     Sleep "500"
     Download("https://raw.githubusercontent.com/EffexDev/Buddy-Telco-Widget/refs/heads/main/FunctionLibrary.ahk", A_WorkingDir . "\FunctionLibrary.ahk")
@@ -405,9 +406,9 @@ UpdateWidget(*) {
     Sleep "500"
     Download("https://raw.githubusercontent.com/EffexDev/Buddy-Telco-Widget/refs/heads/main/config.ini", A_WorkingDir . "\config.ini")
     LoadingGui["MyProgress"].Value := 96
-    Download("https://raw.githubusercontent.com/EffexDev/Buddy-Telco-Widget/refs/heads/main/BuddyPC.png", A_WorkingDir . "\BuddyPC.png")
+    Download("https://raw.githubusercontent.com/EffexDev/Buddy-Telco-Widget/refs/heads/main/BuddyToolKit.ahk", A_WorkingDir . "\BuddyToolKit.ahk")
     LoadingGui["MyProgress"].Value := 100
-    Download("https://raw.githubusercontent.com/EffexDev/Buddy-Telco-Widget/refs/heads/main/BuddyLogo.png", A_WorkingDir . "\BuddyLogo.png")
+    Download("https://raw.githubusercontent.com/EffexDev/Buddy-Telco-Widget/refs/heads/main/Changelog.txt", A_WorkingDir . "\Changelog.txt")
     LoadingGui.Destroy
     MsgBox "Update Complete"
     Run "Changelog.txt"
