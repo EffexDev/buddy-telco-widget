@@ -322,7 +322,7 @@ RunGPT(*) {
 }
 
 ; Everything below this is the update functions
-VersionNumber := "4.5"
+VersionNumber := "4.7"
 
 Download("https://raw.githubusercontent.com/EffexDev/Buddy-Telco-Widget/refs/heads/main/version.ini", A_WorkingDir . "\version.ini")
 global VersionNumberCheck := IniRead("version.ini", "Version", "VersionNumber")
@@ -385,11 +385,8 @@ UpdateWidget(*) {
     LoadingGui.Add("Progress", " w180 h20 cGreen vMyProgress", 0)
     LoadingGui["MyProgress"].Value := 12
     Sleep "500"
-    Download("https://i.imgur.com/7AosDLJ.png", A_WorkingDir . "\BuddyLogo.png")
     LoadingGui["MyProgress"].Value := 24
-    Sleep "500"
-    Download("https://i.imgur.com/a8neftp.png", A_WorkingDir . "\BuddyPC.png")
-    Download("https://raw.githubusercontent.com/EffexDev/Buddy-Telco-Widget/refs/heads/main/TaskBarIcon.ico", A_WorkingDir . "\TaskBarIcon.ico")    
+    Sleep "500"    
     LoadingGui["MyProgress"].Value := 36
     Sleep "500"
     Download("https://raw.githubusercontent.com/EffexDev/Buddy-Telco-Widget/refs/heads/main/FunctionLibrary.ahk", A_WorkingDir . "\FunctionLibrary.ahk")

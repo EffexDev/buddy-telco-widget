@@ -1,3 +1,2 @@
------- Version 4.6 ------
-1. fixed image download links
-2. added no contact closure to complaints templates
+------ Version 4.7 ------
+1. removed the download images bit because AHK doesn't like it
