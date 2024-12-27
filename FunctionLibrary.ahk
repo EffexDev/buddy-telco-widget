@@ -405,9 +405,9 @@ UpdateWidget(*) {
     Sleep "500"
     Download("https://raw.githubusercontent.com/EffexDev/Buddy-Telco-Widget/refs/heads/main/config.ini", A_WorkingDir . "\config.ini")
     LoadingGui["MyProgress"].Value := 96
-    Download("https://raw.githubusercontent.com/EffexDev/Buddy-Telco-Widget/refs/heads/dev/BuddyPC.png", A_WorkingDir . "\BuddyPC.png")
+    Download("https://raw.githubusercontent.com/EffexDev/Buddy-Telco-Widget/refs/heads/main/BuddyPC.png", A_WorkingDir . "\BuddyPC.png")
     LoadingGui["MyProgress"].Value := 100
-    Download("https://raw.githubusercontent.com/EffexDev/Buddy-Telco-Widget/refs/heads/dev/BuddyLogo.png", A_WorkingDir . "\BuddyLogo.png")
+    Download("https://raw.githubusercontent.com/EffexDev/Buddy-Telco-Widget/refs/heads/main/BuddyLogo.png", A_WorkingDir . "\BuddyLogo.png")
     LoadingGui.Destroy
     MsgBox "Update Complete"
     Run "Changelog.txt"
