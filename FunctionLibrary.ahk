@@ -72,7 +72,7 @@ NSLookup(*)
         return
 }
 
-; This is a function to open a GUI containing two calendars, 2 edit fields and a submit button. It's for calculating prorata credits
+; This code is AI because I really cbf doing date math on AHK. Sam is working on refactoring this
 ProRataCalc(*) {
     ProrataGui := Gui(,"Buddy Tool Kit")
     ProrataGui.BackColor := "c007ba8"
@@ -81,23 +81,60 @@ ProRataCalc(*) {
     ProrataGui.Add("MonthCal", "yp+20 vBillingStart")
     ProrataGui.Add("Text", "yp-20 xp+240 cFFFFFF", "Service Closure Date")
     ProrataGui.Add("MonthCal", "yp+20 vServiceEnd")
-    ProrataGui.Show("w490 h300")
-    ProrataGui.Add("Edit","xm w100 vMonthlyCost", "")
+    ProrataGui.Show("w490 h330")
+
+    Plans := ["$65", "$75", "$85", "$99"]
+
+    PlansMap := Map(
+        "$65", 65,
+        "$75", 75,
+        "$85", 85,
+        "$99", 99
+    )
+
+    ProrataGui.AddDropDownList("xm w150 r20 BackgroundFFFFFF vMonthlyCost", Plans)
     ProrataGui.Add("Text","yp cFFFFFF", "Enter the monthly billing amount")
-    ProrataGui.Add("Edit","xm w100 vdaysInMonth", "")
-    ProrataGui.Add("Text","yp cFFFFFF", "How many days this month?")
+    ProrataGui.Add("Edit", "xm w150 vDiscountAmount","0")
+    ProrataGui.Add("Text","yp cFFFFFF", "Enter any current discounts")
+    ProrataGui.Add("Edit", "xm w150 vPlanChanges","0")
+    ProrataGui.Add("Text","yp cFFFFFF", "Enter any plan change costs")
     ProrataGui.Add("Button","xm", "Calculate").OnEvent("Click", PRCalcBox)
 
-        ; Generates a third GUI with the correct prorata amount
-        PRCalcBox(*) {
-            Saved:= ProrataGui.Submit(False)
-            DaysPassed := DateDiff(Saved.ServiceEnd, Saved.BillingStart, "days")
-            Month := 
-            DailyCost := Saved.MonthlyCost / Saved.daysInMonth
-            DaysUsed := DailyCost * DaysPassed
-            ProrataAmount := Saved.MonthlyCost - DaysUsed
-            MsgBox "The prorata amount is " ProrataAmount
+    GetDaysInMonth(date) {
+        year := FormatTime(date, "yyyy")
+        month := FormatTime(date, "MM")
+        
+        if (month = "12") {
+            nextMonthYear := year + 1
+            nextMonthMonth := "01"
+        } else {
+            nextMonthYear := year
+            nextMonthMonth := Format("{:02}", month + 1)
         }
+        
+        currentMonthDate := year . month . "01"
+        nextMonthDate := nextMonthYear . nextMonthMonth . "01"
+        
+        return DateDiff(nextMonthDate, currentMonthDate, "days")
+    }
+
+    PRCalcBox(*) {
+    try {
+        Saved := ProrataGui.Submit(False)
+        MonthlyCost := PlansMap[Saved.MonthlyCost]
+        MonthlyCost := MonthlyCost - Saved.DiscountAmount
+        MonthlyCost := MonthlyCost + Saved.PlanChanges
+        DaysPassed := DateDiff(Saved.ServiceEnd, Saved.BillingStart, "days")
+        daysInMonth := GetDaysInMonth(Saved.BillingStart)
+        DailyCost := MonthlyCost / daysInMonth
+        DaysUsed := DailyCost * DaysPassed
+        ProrataAmount := MonthlyCost - DaysUsed
+        MsgBox "The prorata amount is " ProrataAmount
+    }
+    catch as Error {
+        MsgBox "Fields cannot be blank"
+    }
+}
 }
 
 ; Generates a GUI with a large blank input field for typing notes into. There is no check to see if it is already open as having more than one open could be intended. THIS IS NOT PERSISTENMT AND CANNOT SAVE FILES
