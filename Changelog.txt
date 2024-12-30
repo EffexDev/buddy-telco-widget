@@ -1,2 +1,2 @@
------- Version 4.7 ------
-1. removed the download images bit because AHK doesn't like it
+------ Version 4.8 ------
+1. Updated prorata calculator to use date math and be more accurate and take discounts and plan change costs into account
