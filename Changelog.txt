@@ -1,2 +1,6 @@
------- Version 4.8 ------
-1. Updated prorata calculator to use date math and be more accurate and take discounts and plan change costs into account
+------ Version 4.9 ------
+1. Added templates for current and resolved outages
+2. Added templates for logical data mismatch service requests
+3. Added templates for when NBN tells us customer needs to check internal wiring
+4. Added template for FTTC ICOF
+5. Error handling on the CMD testing buttons to check clipboard for valid IP address
