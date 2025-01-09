@@ -4,3 +4,7 @@
 3. Added templates for when NBN tells us customer needs to check internal wiring
 4. Added template for FTTC ICOF
 5. Error handling on the CMD testing buttons to check clipboard for valid IP address
+6. Fixed SRA template
+7. Second dropdown now autopopulates
+8. Added hardware T&Cs templates
+9. Changed fault closure template to have link to LC
