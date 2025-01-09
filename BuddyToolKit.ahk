@@ -88,40 +88,41 @@ Send "xxx"
 TemplateTab.UseTab(1)
 SelGeneralReason := BuddyGui.AddDropDownList("w200 h100 r20 BackgroundFFFFFF vPickedGeneralReason Choose1", GeneralReasons)
 SelGeneralReason.OnEvent('Change', SelGeneralReasonSelected)
-SelGeneralTemplate := BuddyGui.AddDropDownList("yp w200 r20 BackgroundFFFFFF vPickedGeneral", GeneralTemplates
+SelGeneralTemplate := BuddyGui.AddDropDownList("yp w200 r20 BackgroundFFFFFF vPickedGeneral Choose1", GeneralTemplates
 [SelGeneralReason.Value])
 GenerateFault := BuddyGui.Add("Button", "yp", "Generate").OnEvent("Click", RunGeneral)
 
 TemplateTab.UseTab(2)
 SelAccountReason := BuddyGui.AddDropDownList("w200 h100 r20 BackgroundFFFFFF vPickedAccountReason Choose1", AccountReasons)
 SelAccountReason.OnEvent('Change', SelAccountReasonSelected)
-SelAccountTemplate := BuddyGui.AddDropDownList("yp w200 r20 BackgroundFFFFFF vPickedAccount", AccountTemplates
+SelAccountTemplate := BuddyGui.AddDropDownList("yp w200 r20 BackgroundFFFFFF vPickedAccount Choose1", AccountTemplates
 [SelAccountReason.Value])
 GenerateFault := BuddyGui.Add("Button", "yp", "Generate").OnEvent("Click", RunAccount)
 
 TemplateTab.UseTab(3)
 SelFaultReason := BuddyGui.AddDropDownList("w200 h100 r20 BackgroundFFFFFF vPickedFaultReason Choose1", FaultReasons)
 SelFaultReason.OnEvent('Change', SelFaultReasonSelected)
-SelFaultTemplate := BuddyGui.AddDropDownList("yp w200 r20 BackgroundFFFFFF vPickedFault", FaultTemplates[SelFaultReason.Value])
+SelFaultTemplate := BuddyGui.AddDropDownList("yp w200 r20 BackgroundFFFFFF vPickedFault Choose1", FaultTemplates[SelFaultReason.Value])
 GenerateFault := BuddyGui.Add("Button", "yp", "Generate").OnEvent("Click", RunFault)
 
 TemplateTab.UseTab(4)
 SelDeliveryReason := BuddyGui.AddDropDownList("w200 h100 r20 BackgroundFFFFFF vPickedDeliveryReason Choose1", DeliveryReasons)
 SelDeliveryReason.OnEvent('Change', SelDeliveryReasonSelected)
-SelDeliveryTemplate := BuddyGui.AddDropDownList("yp w200 r20 BackgroundFFFFFF vPickedDelivery", DeliveryTemplates[SelDeliveryReason.Value])
+SelDeliveryTemplate := BuddyGui.AddDropDownList("yp w200 r20 BackgroundFFFFFF vPickedDelivery Choose1", DeliveryTemplates[SelDeliveryReason.Value])
 GenerateFault := BuddyGui.Add("Button", "yp", "Generate").OnEvent("Click", RunDelivery)
 
 TemplateTab.UseTab(5)
 SelComplaintReason := BuddyGui.AddDropDownList("w200 h100 r20 BackgroundFFFFFF vPickedComplaintReason Choose1", ComplaintReasons)
 SelComplaintReason.OnEvent('Change', SelComplaintReasonSelected)
-SelComplaintTemplate := BuddyGui.AddDropDownList("yp w200 r20 BackgroundFFFFFF vPickedComplaint", ComplaintTemplates[SelComplaintReason.Value])
+SelComplaintTemplate := BuddyGui.AddDropDownList("yp w200 r20 BackgroundFFFFFF vPickedComplaint Choose1", ComplaintTemplates[SelComplaintReason.Value])
 GenerateFault := BuddyGui.Add("Button", "yp", "Generate").OnEvent("Click", RunComplaint)
 
 TemplateTab.UseTab(6)
 SelTCSReason := BuddyGui.AddDropDownList("w200 h100 r20 BackgroundFFFFFF vPickedTCSReason Choose1", TCSReasons)
 SelTCSReason.OnEvent('Change', SelTCSReasonSelected)
-SelTCSTemplate := BuddyGui.AddDropDownList("yp w200 r20 BackgroundFFFFFF vPickedTCS", TCSTemplates[SelTCSReason.Value])
+SelTCSTemplate := BuddyGui.AddDropDownList("yp w200 r20 BackgroundFFFFFF vPickedTCS Choose1", TCSTemplates[SelTCSReason.Value])
 GenerateFault := BuddyGui.Add("Button", "yp", "Generate").OnEvent("Click", RunTCS)
+
 
 ; The tools tab. Controls the bottom set of tabs and the content of them. Functions are in the FunctionsLibrary file
 ToolsTab.UseTab(1)

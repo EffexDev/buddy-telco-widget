@@ -36,40 +36,68 @@ EWD_MoveWindow(*)
 
 ;------------------------- Tools -------------------------------------
 
+Global ipPattern := "^([0-9]{1,2}|1[0-9]{2}|2[0-4][0-9]|25[0-5])\.(?:([0-9]{1,2}|1[0-9]{2}|2[0-4][0-9]|25[0-5])\.){2}([0-9]{1,2}|1[0-9]{2}|2[0-4][0-9]|25[0-5])$"
+Global ip := A_Clipboard
+
 ; Runs a ping test using an IP address that is saved to the clipboard. Will open CMD if it is not open already
 PingTest(*)
 {
-    if WinExist("C:\Windows\SYSTEM32\cmd.exe")
-    WinActivate
-else
-    Run "cmd.exe"
-    Sleep 300
-    Send "ping " A_Clipboard "{Enter}"
-    return
+    Global ip := A_Clipboard
+    Global ipPattern 
+    if RegExMatch(ip, ipPattern) {
+        if WinExist("C:\Windows\SYSTEM32\cmd.exe") {
+            WinActivate
+        }
+        else {
+            Run "cmd.exe"
+            Sleep 300
+            Send "ping " A_Clipboard "{Enter}"
+            return
+        }
+    } else {
+        MsgBox "Clipboard does not contain a valid IP address"
+    }
 }
+
 
 ; Runs a traceroute using an IP address that is saved to the clipboard. Will open CMD if it is not open already
 Traceroute(*)
 {
-    if WinExist("C:\Windows\SYSTEM32\cmd.exe")
-        WinActivate
-    else
-        Run "cmd.exe"
-        Sleep 300
-        Send "tracert " A_Clipboard "{Enter}"
-        return
+    Global ip := A_Clipboard
+    Global ipPattern 
+    if RegExMatch(ip, ipPattern) {
+        if WinExist("C:\Windows\SYSTEM32\cmd.exe") {
+            WinActivate
+        }
+        else {
+            Run "cmd.exe"
+            Sleep 300
+            Send "tracert " A_Clipboard "{Enter}"
+            return
+        }
+    } else {
+        MsgBox "Clipboard does not contain a valid IP address"
+    }
 }
 
 ; Runs a nslookup using an IP address that is saved to the clipboard. Will open CMD if it is not open already
 NSLookup(*)
 {
-    if WinExist("C:\Windows\SYSTEM32\cmd.exe")
-        WinActivate
-    else
-        Run "cmd.exe"
-        Sleep 300
-        Send "nslookup " A_Clipboard "{Enter}"
-        return
+    Global ip := A_Clipboard
+    Global ipPattern 
+    if RegExMatch(ip, ipPattern) {
+        if WinExist("C:\Windows\SYSTEM32\cmd.exe") {
+            WinActivate
+        }
+        else {
+            Run "cmd.exe"
+            Sleep 300
+            Send "nslookup " A_Clipboard "{Enter}"
+            return
+        }
+    } else {
+        MsgBox "Clipboard does not contain a valid IP address"
+    }
 }
 
 ; This code is AI because I really cbf doing date math on AHK. Sam is working on refactoring this
@@ -83,16 +111,7 @@ ProRataCalc(*) {
     ProrataGui.Add("MonthCal", "yp+20 vServiceEnd")
     ProrataGui.Show("w490 h330")
 
-    Plans := ["$65", "$75", "$85", "$99"]
-
-    PlansMap := Map(
-        "$65", 65,
-        "$75", 75,
-        "$85", 85,
-        "$99", 99
-    )
-
-    ProrataGui.AddDropDownList("xm w150 r20 BackgroundFFFFFF vMonthlyCost", Plans)
+    ProrataGui.Add("Edit", "xm w150 vMonthlyCost","0")
     ProrataGui.Add("Text","yp cFFFFFF", "Enter the monthly billing amount")
     ProrataGui.Add("Edit", "xm w150 vDiscountAmount","0")
     ProrataGui.Add("Text","yp cFFFFFF", "Enter any current discounts")
@@ -121,7 +140,7 @@ ProRataCalc(*) {
     PRCalcBox(*) {
     try {
         Saved := ProrataGui.Submit(False)
-        MonthlyCost := PlansMap[Saved.MonthlyCost]
+        MonthlyCost := Saved.MonthlyCost
         MonthlyCost := MonthlyCost - Saved.DiscountAmount
         MonthlyCost := MonthlyCost + Saved.PlanChanges
         DaysPassed := DateDiff(Saved.ServiceEnd, Saved.BillingStart, "days")
@@ -249,7 +268,7 @@ ProcessSuperlookup(*)
 ; Runs the stuff I need to work for the day. Only opens a single instance of them
 Startup(*)
 {
-        if WinExist("C:\Program Files\Slack\slack.exe")
+    if WinExist("C:\Program Files\Slack\slack.exe")
         {
             WinActivate
         } 
@@ -360,7 +379,7 @@ RunGPT(*) {
 
 ; Everything below this is the update functions
 
-VersionNumber := "4.8"
+VersionNumber := "4.9"
 
 Download("https://raw.githubusercontent.com/EffexDev/Buddy-Telco-Widget/refs/heads/main/version.ini", A_WorkingDir . "\version.ini")
 global VersionNumberCheck := IniRead("version.ini", "Version", "VersionNumber")
