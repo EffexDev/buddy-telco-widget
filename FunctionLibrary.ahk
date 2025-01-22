@@ -268,15 +268,6 @@ ProcessSuperlookup(*)
 ; Runs the stuff I need to work for the day. Only opens a single instance of them
 Startup(*)
 {
-    if WinExist("C:\Program Files\Slack\slack.exe")
-        {
-            WinActivate
-        } 
-    else 
-        {
-            Run "C:\Program Files\Slack\Slack.exe"
-        }
-
     if WinExist("ahk_exe C:\Program Files\Google\Chrome\Application\msedge.exe")
         {
             WinActivate
@@ -377,9 +368,44 @@ RunGPT(*) {
     MsgBox "The color at the current cursor position is " PixelGetColor(MouseX, MouseY)
 }
 
+; Automation for queueberts
+
+RunQueues(ctrl, *) {
+    showNotes := BuddyGui["ShowNotesButton"].Value
+
+    Team := ["Sam", "Jordan", "Ben", "Yazid", "Jakob"]
+    AdditionalTeam := Team.Clone() 
+    
+    Quarantine := GetRandomMember(&Team)
+    Submit := GetRandomMember(&Team)
+    Manual := GetRandomMember(&Team)
+    HFCFTTC := GetRandomMember(&Team)
+    Complaints := GetRandomMember(&Team)
+    Calls := GetRandomMember(&AdditionalTeam)
+    
+    Output := "Assignees for the main queues for the day:`n`nQuarantine: " Quarantine "`nSubmit Order: " Submit "`nManual: " Manual "`nHFC/FTTC: " HFCFTTC "`n`nComplaints: " Complaints "`nCalls: " Calls ""
+
+    if (showNotes) {
+        ToolsTab.Choose(1)
+        ControlFocus NotePadEmbedded
+        NotePadEmbedded.Focus()
+        Send Output
+    } else {
+        TemplatesPad()
+        ControlFocus Templates
+        Templates.Focus()
+        Send Output
+    }
+    
+    GetRandomMember(&TeamArray) {
+        Randomizer := Random(1, TeamArray.Length)
+        return TeamArray.RemoveAt(Randomizer)
+    }
+}
+
 ; Everything below this is the update functions
 
-VersionNumber := "4.9"
+VersionNumber := "5"
 
 Download("https://raw.githubusercontent.com/EffexDev/Buddy-Telco-Widget/refs/heads/main/version.ini", A_WorkingDir . "\version.ini")
 global VersionNumberCheck := IniRead("version.ini", "Version", "VersionNumber")
