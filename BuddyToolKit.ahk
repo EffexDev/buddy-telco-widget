@@ -15,6 +15,7 @@ Global GeneralNBNMap := Map()
 Global GeneralHardwareMap := Map()
 Global GeneralOTRSMap := Map()
 Global RedmineJiraMap := Map()
+Global SignupMap := Map()
 Global PPMap := Map()
 Global FHMap := Map()
 Global ReconnectionMap := Map()
@@ -77,7 +78,7 @@ iconsize := 32
 hIcon := LoadPicture("TaskBarIcon.ico", "Icon1 w" iconsize " h" iconsize, &imgtype)
 SendMessage(0x0080, 0, hIcon, BuddyGui)
 SendMessage(0x0080, 1, hIcon, BuddyGui) 
-BuddyGui.Show("x1920 y0 w630")
+BuddyGui.Show("x0 y0 w630")
 
 TraySetIcon(A_ScriptDir "\TaskBarIcon.ico") 
 
@@ -138,6 +139,7 @@ BuddyGui.Add("Button", "xm+15 y245 Section", "Ping Test").OnEvent("Click", PingT
 BuddyGui.Add("Button", "yp", "Traceroute").OnEvent("Click", Traceroute)
 BuddyGui.Add("Button", "yp", "NSLookup").OnEvent("Click", NSLookup)
 BuddyGui.Add("Button", "yp", "Prorata Calc").OnEvent("Click", ProRataCalc)
+BuddyGui.Add("Button", "yp", "Assign Queues").OnEvent("Click", RunQueues)
 
 ToolsTab.UseTab(3)
 BuddyGui.Add("Button", "xm+15 y245 Section", "CMS").OnEvent("Click", RunCMS)
