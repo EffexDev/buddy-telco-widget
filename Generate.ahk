@@ -1,12 +1,9 @@
-; The series of functions below are what generates the templates when the generate button is clicked. 
-; They are all the same so I will break down the logic of the first one and it can be applied to the rest.
 RunGeneral(ctrl, *) {
     Global ShowNotesButton
     Saved := BuddyGui.Submit(False)
     Output := ""
 
     UpdateTemplates()
-
     try {
         templateMap := TemplatesMaps.Get(Saved.PickedGeneralReason)
         Output := templateMap.Get(Saved.PickedGeneral)
@@ -18,11 +15,11 @@ RunGeneral(ctrl, *) {
             ControlFocus NotePadEmbedded
             NotePadEmbedded.Focus()
             Send Output
+
         } else {
             TemplatesPad()
             ToolsTab.Choose(1)
             ControlFocus Templates
-            Templates.Focus()
             Send Output
         }
     } catch as Error {

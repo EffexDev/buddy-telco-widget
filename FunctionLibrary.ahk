@@ -220,6 +220,10 @@ LockTerminal(*)
     Run "rundll32 user32.dll`,LockWorkStation"
 }
 
+MuteButton(*) {  ; Ctrl+Shift+Space
+    Send "^+{Space}"
+}
+
 ; Hotkey to run the function below
 ^Del::ProcessSuperlookup()
 
@@ -405,7 +409,7 @@ RunQueues(ctrl, *) {
 
 ; Everything below this is the update functions
 
-VersionNumber := "5"
+VersionNumber := "5.1"
 
 Download("https://raw.githubusercontent.com/EffexDev/Buddy-Telco-Widget/refs/heads/main/version.ini", A_WorkingDir . "\version.ini")
 global VersionNumberCheck := IniRead("version.ini", "Version", "VersionNumber")
@@ -494,7 +498,15 @@ UpdateWidget(*) {
     Run "Changelog.txt"
     Reload
 }
-
+    
 !z:: {
     ExitApp
+}
+
+:*:!d2::
+{
+    Send "Set Abandonment"
+    CurrentDate := FormatTime(, "yyyyMMdd")
+    NewDate := FormatTime(DateAdd(CurrentDate, 7, "days"), "dd/MM/yyyy")
+    Send(NewDate)
 }
