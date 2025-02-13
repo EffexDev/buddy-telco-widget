@@ -1,9 +1,5 @@
------- Version 5 ------
-1. Added SMS Template for telling people to go pick up their hardware
-2. Created button and function in the automations tab to randomly assign the morning queues
-3. Updated the 24 hour warning CSP SMS to advise where to find the response in active faults
-4. Added templates for signup steps in General tab
-5. Changed the open location of the script to be more compatible with laptops
-6. Removed Slack from startup
-7. Added template for hardwarelimitation based speed faults
-8. Fixed a few templates typos that wer submitted as bug reports
+------ Version 5.1 ------
+1. Some efficiency optimisations
+2. Added some templates
+3. Added a mute button (for some reason)
+4. Fixed failed payment templates

@@ -127,7 +127,8 @@ GenerateFault := BuddyGui.Add("Button", "yp", "Generate").OnEvent("Click", RunTC
 
 ; The tools tab. Controls the bottom set of tabs and the content of them. Functions are in the FunctionsLibrary file
 ToolsTab.UseTab(1)
-Superlookup := BuddyGui.Add("Button","xm+15 y245 vSuperlookup", "Superlookup").OnEvent("Click", ProcessSuperlookup)
+BuddyGui.Add("Button", "xm+15 y245", "Mute").OnEvent("Click", MuteButton)
+Superlookup := BuddyGui.Add("Button","yp w90 vSuperlookup", "Superlookup").OnEvent("Click", ProcessSuperlookup)
 BuddyGui.Add("Button", "yp w90", "Notes").OnEvent("Click", NotePad)
 BuddyGui.Add("Button","yp w90", "Hotkeys").OnEvent("Click", HotkeysPad)
 BuddyGui.Add("Button","yp w90","Startup").OnEvent("Click", Startup)
