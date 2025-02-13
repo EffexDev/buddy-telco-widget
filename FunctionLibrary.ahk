@@ -365,7 +365,7 @@ RunGPT(*) {
 ^!z:: 
 {
     MouseGetPos &MouseX, &MouseY
-    MsgBox "The color at the current cursor position is " PixelGetColor(MouseX, MouseY)
+    A_Clipboard := PixelGetColor(MouseX, MouseY)
 }
 
 ; Automation for queueberts
