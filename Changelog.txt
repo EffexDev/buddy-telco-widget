@@ -7,3 +7,4 @@
 6. Removed Slack from startup
 7. Added template for hardwarelimitation based speed faults
 8. Fixed a few templates typos that wer submitted as bug reports
+9. Ctrl+Alt+Z now saves the currently hovered pixels hex code to the clipboard
