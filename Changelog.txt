@@ -1,5 +1,2 @@
------- Version 5.1 ------
-1. Some efficiency optimisations
-2. Added some templates
-3. Added a mute button (for some reason)
-4. Fixed failed payment templates
+------ Version 5.2 ------
+Fixed a complaints closure template as the email domain was incorrect
