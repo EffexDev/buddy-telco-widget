@@ -409,7 +409,7 @@ RunQueues(ctrl, *) {
 
 ; Everything below this is the update functions
 
-VersionNumber := "5.1"
+VersionNumber := "5.2"
 
 Download("https://raw.githubusercontent.com/EffexDev/Buddy-Telco-Widget/refs/heads/main/version.ini", A_WorkingDir . "\version.ini")
 global VersionNumberCheck := IniRead("version.ini", "Version", "VersionNumber")
