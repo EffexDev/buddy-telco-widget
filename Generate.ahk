@@ -12,15 +12,12 @@ RunGeneral(ctrl, *) {
         
         if (showNotes) {
             ToolsTab.Choose(1)
+            NotePadEmbedded.Value := Output
             ControlFocus NotePadEmbedded
-            NotePadEmbedded.Focus()
-            Send Output
-
         } else {
             TemplatesPad()
+            Templates.Value := Output
             ToolsTab.Choose(1)
-            ControlFocus Templates
-            Send Output
         }
     } catch as Error {
         MsgBox "Make sure you select all options and enter customer name."
@@ -42,15 +39,12 @@ RunAccount(ctrl, *) {
         
         if (showNotes) {
             ToolsTab.Choose(1)
+            NotePadEmbedded.Value := Output
             ControlFocus NotePadEmbedded
-            NotePadEmbedded.Focus()
-            Send Output
         } else {
             TemplatesPad()
+            Templates.Value := Output
             ToolsTab.Choose(1)
-            ControlFocus Templates
-            Templates.Focus()
-            Send Output
         }
     } catch as Error {
         MsgBox "Make sure you select all options and enter customer name."
@@ -72,15 +66,12 @@ RunFault(ctrl, *) {
         
         if (showNotes) {
             ToolsTab.Choose(1)
+            NotePadEmbedded.Value := Output
             ControlFocus NotePadEmbedded
-            NotePadEmbedded.Focus()
-            Send Output
         } else {
             TemplatesPad()
+            Templates.Value := Output
             ToolsTab.Choose(1)
-            ControlFocus Templates
-            Templates.Focus()
-            Send Output
         }
     } catch as Error {
         MsgBox "Make sure you select all options and enter customer name."
@@ -102,15 +93,12 @@ RunDelivery(ctrl, *) {
         
         if (showNotes) {
             ToolsTab.Choose(1)
+            NotePadEmbedded.Value := Output
             ControlFocus NotePadEmbedded
-            NotePadEmbedded.Focus()
-            Send Output
         } else {
             TemplatesPad()
+            Templates.Value := Output
             ToolsTab.Choose(1)
-            ControlFocus Templates
-            Templates.Focus()
-            Send Output
         }
     } catch as Error {
         MsgBox "Make sure you select all options and enter customer name."
@@ -132,15 +120,12 @@ RunComplaint(ctrl, *) {
         
         if (showNotes) {
             ToolsTab.Choose(1)
+            NotePadEmbedded.Value := Output
             ControlFocus NotePadEmbedded
-            NotePadEmbedded.Focus()
-            Send Output
         } else {
             TemplatesPad()
+            Templates.Value := Output
             ToolsTab.Choose(1)
-            ControlFocus Templates
-            Templates.Focus()
-            Send Output
         }
     } catch as Error {
         MsgBox "Make sure you select all options and enter customer name."
@@ -162,15 +147,12 @@ RunTCS(ctrl, *) {
         
         if (showNotes) {
             ToolsTab.Choose(1)
+            NotePadEmbedded.Value := Output
             ControlFocus NotePadEmbedded
-            NotePadEmbedded.Focus()
-            Send Output
         } else {
             TemplatesPad()
+            Templates.Value := Output
             ToolsTab.Choose(1)
-            ControlFocus Templates
-            Templates.Focus()
-            Send Output
         }
     } catch as Error {
         MsgBox "Make sure you select all options and enter customer name."

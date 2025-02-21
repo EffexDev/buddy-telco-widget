@@ -1,2 +1,3 @@
------- Version 5.2 ------
-Fixed a complaints closure template as the email domain was incorrect
+------ Version 5.3 ------
+1. Made the template generation wildly faster
+2. Replaced RegexReplace on customer name to Trim(CustomerName) to only remove trailing and leading whitespace

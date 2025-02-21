@@ -167,7 +167,7 @@ global CustomerName := ""
 CustomerNameEdit(CustomerNameValue, *) {
     global CustomerName
     CustomerName := BuddyGui["CustomerNameValue"].Value
-    global CustomerNameSanitised := RegExReplace(CustomerName, "[^a-zA-Z]", "")
+    global CustomerNameSanitised := Trim(CustomerName)
     IniWrite(CustomerNameSanitised, "config.ini", "Customer", "CustomerName")
     UpdateTemplates()
 }
