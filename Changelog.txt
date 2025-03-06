@@ -1,3 +1,4 @@
------- Version 5.3 ------
-1. Made the template generation wildly faster
-2. Replaced RegexReplace on customer name to Trim(CustomerName) to only remove trailing and leading whitespace
+------ Version 5.4 ------
+1. Added more CSP Linking codes in Faults > CSP Linking > Misc
+2. Fixed the multiple UNI-D ports template
+3. Removed sentence from day 3 of hardware payment failed that made it sound super cheery

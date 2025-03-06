@@ -12,10 +12,14 @@ RunGeneral(ctrl, *) {
         
         if (showNotes) {
             ToolsTab.Choose(1)
+            NotePadEmbedded.Value := ""
+            Sleep(100)
             NotePadEmbedded.Value := Output
             ControlFocus NotePadEmbedded
         } else {
             TemplatesPad()
+            Templates.Value := ""
+            Sleep(100)
             Templates.Value := Output
             ToolsTab.Choose(1)
         }
@@ -39,10 +43,14 @@ RunAccount(ctrl, *) {
         
         if (showNotes) {
             ToolsTab.Choose(1)
+            NotePadEmbedded.Value := ""
+            Sleep(100)
             NotePadEmbedded.Value := Output
             ControlFocus NotePadEmbedded
         } else {
             TemplatesPad()
+            Templates.Value := ""
+            Sleep(100)
             Templates.Value := Output
             ToolsTab.Choose(1)
         }
@@ -66,10 +74,14 @@ RunFault(ctrl, *) {
         
         if (showNotes) {
             ToolsTab.Choose(1)
+            NotePadEmbedded.Value := ""
+            Sleep(100)
             NotePadEmbedded.Value := Output
             ControlFocus NotePadEmbedded
         } else {
             TemplatesPad()
+            Templates.Value := ""
+            Sleep(100)
             Templates.Value := Output
             ToolsTab.Choose(1)
         }
@@ -93,10 +105,14 @@ RunDelivery(ctrl, *) {
         
         if (showNotes) {
             ToolsTab.Choose(1)
+            NotePadEmbedded.Value := ""
+            Sleep(100)
             NotePadEmbedded.Value := Output
             ControlFocus NotePadEmbedded
         } else {
             TemplatesPad()
+            Templates.Value := ""
+            Sleep(100)
             Templates.Value := Output
             ToolsTab.Choose(1)
         }
@@ -120,10 +136,14 @@ RunComplaint(ctrl, *) {
         
         if (showNotes) {
             ToolsTab.Choose(1)
+            NotePadEmbedded.Value := ""
+            Sleep(100)
             NotePadEmbedded.Value := Output
             ControlFocus NotePadEmbedded
         } else {
             TemplatesPad()
+            Templates.Value := ""
+            Sleep(100)
             Templates.Value := Output
             ToolsTab.Choose(1)
         }
@@ -147,10 +167,14 @@ RunTCS(ctrl, *) {
         
         if (showNotes) {
             ToolsTab.Choose(1)
+            NotePadEmbedded.Value := ""
+            Sleep(100)
             NotePadEmbedded.Value := Output
             ControlFocus NotePadEmbedded
         } else {
             TemplatesPad()
+            Templates.Value := ""
+            Sleep(100)
             Templates.Value := Output
             ToolsTab.Choose(1)
         }

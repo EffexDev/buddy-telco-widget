@@ -19,9 +19,6 @@ if (RegExMatch(csFullName, "^[^.]*",&csFirstName)) {
 csTitle:=StrTitle(csFirstName[0])
 }
 
-CurrentDate := FormatTime(, "yyyyMMdd")
-NewDate := FormatTime(DateAdd(CurrentDate, 7, "days"), "dd/MM/yyyy")
-
 GeneralReasons := ["LiveChat","OTRS", "Redmine/Jira", "Callback", "Signup"]
 GeneralTemplates := [["Direct Link"],["Charges", "Closure", "Debit Validation Failed"],["Redmine Bug", "Redmine Enhancement"], ["No Answer"], ["Steps"]]
 
@@ -29,7 +26,7 @@ AccountReasons := ["Payment Plan", "Financial Hardship", "Reconnection"]
 AccountTemplates := [["Set Up","Confirmation", "Payment Options", "Update Details"],["Template"],["Terms Set", "No Reconnection"]]
 
 FaultReasons := ["General Templates","NBN","General Hardware","Discovery","Slow Speeds", "Dropouts", "No Connection", "Service Setup", "CSP Linking", "Hardware"]
-FaultTemplates := [["Titles", "Warning", "Closing", "Checking in", "SRA/SOS/ROC"],["Raise", "Booked Appt", "Internal Wiring", "FTTC ICOF"],["Resets", "Router Swap"],["General Issue", "Slow Speeds", "Dropouts", "No Connection"],["Direct Connection", "Wifi Limitations", "Bandsteering", "Line Rates", "Hardware Limitation"],["Bandsteering", "Stability Profile", "SRA", "Cabling"],["UNI-D Port", "Outage"],["VDSL", "EWAN"],["NBN", "Tracking"],["Local Issue", "Cabling"]]
+FaultTemplates := [["Titles", "Warning", "Closing", "Checking in", "SRA/SOS/ROC"],["Raise", "Booked Appt", "Internal Wiring", "FTTC ICOF"],["Resets", "Router Swap"],["General Issue", "Slow Speeds", "Dropouts", "No Connection"],["Direct Connection", "Wifi Limitations", "Bandsteering", "Line Rates", "Hardware Limitation"],["Bandsteering", "Stability Profile", "SRA", "Cabling"],["UNI-D Port", "Outage"],["VDSL", "EWAN"],["NBN", "Tracking", "Misc"],["Local Issue", "Cabling"]]
 
 DeliveryReasons := ["HFC", "FTTP", "FTTC", "Validation", "Banlisting", "Payment Failed", "Missing Payment Info", "Service Request", "Delays"]
 DeliveryTemplates := [["Day 1","Day 2", "Day 3", "Multiple NTDs","Signal Issue"],["Multiple UNI-D"],["Day 1","Day 2", "Day 3", "Connect Router"],["Day 1","Day 2", "Day 3"],["Day 1"],["Day 1", "Day 2", "Day 3"],["Day 1","Day 2", "Day 3"],["NTD/Address Mismatch", "FTTP - Rebuild", "FTTN/B - SC12 No CPI", "FTTN/B - SC13 No CPI", "FTTN/B - FNN/ULL Dispute", "FTTN/B - Rebuild", "FTTN/B - POTS Rejection", "HFC - Urgent Completion", "HFC - Remote Activation", "HFC - Multiple NTDs", "Order Escalation","Logical Mismatch"], ["TC4", "In-Flight Order", "In-Flight Fibre Connect", "Duplicate", "Hardware Pickup"]]
@@ -216,7 +213,8 @@ UpdateTemplates() {
 
     Global LinkMap := Map(
         "NBN", "NBN Appointment ID:`n`nNBN Incident ID:",
-        "Tracking", "Return Post Tracking Code:"
+        "Tracking", "Return Post Tracking Code:",
+        "Misc", "Symbio ID: xxx`nRedmine ID: xxx`nOpticomm Incident ID: xxx`nTelstra Case Number: xxx`nOptus ID: xxx`niBoss ID: xxx"
     )
 
     Global HardwareMap := Map(
@@ -287,7 +285,7 @@ UpdateTemplates() {
     )
 
     Global FTTPMap := Map(
-        "Multiple UNI-D", "Multiple UNI-D Ports`n`n------------------------------`n`nHi xxx,`n`nWe hope you're doing great.`n`nWe wanted to update you on your recent NBN order. It's currently delayed because NBN have advised that there is already more than one connection on the NTD. `n`nDue to this we need to clarify which port you would like us to use. Please provide us with the port number of the current you would like us to take over.`n`nIf you have any questions, you can reply to this email or just hop on our live chat, and our friendly team will assist you in no time. We're available Monday to Friday, from 12:00pm to 8pm AEDT.`n`n------------------------------`n`nHey Buddy Telco here! We are unable to process your order as there is already more than one connection at your address. Please respond to our email to let us know which port you would like us to use, or reach out via LiveChat.",
+        "Multiple UNI-D", "Multiple UNI-D Ports`n`n------------------------------`n`nHi xxx,`n`nWe hope you're doing great.`n`nWe wanted to update you on your recent NBN order. It's currently delayed because NBN have advised that there is already more than one connection on the NTD. `n`nDue to this we need to clarify which port you would like us to use. Please provide us with the port number of the current service you would like us to take over.`n`nIf you have any questions, you can reply to this email or just hop on our live chat, and our friendly team will assist you in no time. We're available Monday to Friday, from 12:00pm to 8pm AEDT.`n`n------------------------------`n`nHey Buddy Telco here! We are unable to process your order as there is already more than one connection at your address. Please respond to our email to let us know which port you would like us to use, or reach out via LiveChat.",
         
     )
 
@@ -308,7 +306,7 @@ UpdateTemplates() {
 
         "Day 2", "Hey there. It's Buddy Telco. We need to chat about your order. Please reach out to our live chat team so we can get things moving. We're here Monday to Friday, from 12:00pm to 8pm AEDT. If we do not hear from you by " newDate " we will need to cancel your order. Thanks.`n`n------------------------------`n`nHey " CustomerNameSanitised ",`n`nWe hope you're doing great.`n`nWe wanted to update you on your recent NBN order. It's currently delayed because your debit has failed.`n`nIf you have any questions, you can reach out here or just hop on our live chat, and our friendly team will assist you in no time. We're available Monday to Friday, from 12:00pm to 8pm AEDT.If we don't hear from you by " newDate ", we'll have to abandon your order. We don't want you to miss out, so please reach out soon.`n`nThanks for your understanding. We can't wait to get you up and running.`n`nRegards,`n" csTitle "",
 
-        "Day 3", "Hey there. It's Buddy Telco. As we have not heard from you in regards to your order, we have abandoned the order. If you do wish to connect with us please place another order via the website.`n`n------------------------------`n`nHey " CustomerNameSanitised ",`n`nWe hope you're doing great.`n`nWe wanted to update you on your recent order. As we have not heard back from you, we have abandoned your order. If you do wish to connect with us please place another order on our website. If you have any questions about this process you can contact our support team through the LiveChat on our website.`n`nThanks for your understanding. We can't wait to get you up and running.`n`nRegards,`n" csTitle ""
+        "Day 3", "Hey there. It's Buddy Telco. As we have not heard from you in regards to your order, we have abandoned the order. If you do wish to connect with us please place another order via the website.`n`n------------------------------`n`nHey " CustomerNameSanitised ",`n`nWe hope you're doing great.`n`nWe wanted to update you on your recent order. As we have not heard back from you, we have abandoned your order. If you do wish to connect with us please place another order on our website. If you have any questions about this process you can contact our support team through the LiveChat on our website.`n`nThanks for your understanding. `n`nRegards,`n" csTitle ""
     )
 
     Global PaymentMap := Map(
