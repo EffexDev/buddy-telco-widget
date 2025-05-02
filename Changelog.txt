@@ -1,4 +1,4 @@
------- Version 5.5 ------
+------ Version 5.6 ------
 Added some little AI prompty bois
 Fixed the complaints > Faults template
 Fixed some delivery templates
