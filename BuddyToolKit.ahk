@@ -16,6 +16,7 @@ Global GeneralHardwareMap := Map()
 Global GeneralOTRSMap := Map()
 Global RedmineJiraMap := Map()
 Global SignupMap := Map()
+Global PromptMap := Map()
 Global PPMap := Map()
 Global FHMap := Map()
 Global ReconnectionMap := Map()
@@ -72,7 +73,7 @@ BuddyGui.SetFont("s10 c000000","Nunito")
 BuddyGui.Add("Text", " xm cFFFFFF" , "Customer Name:")
 Global CustomerNameField := BuddyGui.Add("Edit", "yp-3 xm+105 w150 vCustomerNameValue", "").OnEvent("Change", CustomerNameEdit)
 TemplateTab := BuddyGui.Add("Tab3","xm h70 w610 BackgroundWhite", ["General", "Accounts", "Faults","Order Support","Complaints","T and Cs"])
-ToolsTab := BuddyGui.Add("Tab3", "WP h80 BackgroundWhite c222222 vToolsTab", ["QOL", "Automations", "Useful Links", "Options"])
+ToolsTab := BuddyGui.Add("Tab3", "WP h80 BackgroundWhite c222222 vToolsTab", ["QOL", "Automations", "Useful Links", "Options", "Reviews"])
 
 iconsize := 32
 hIcon := LoadPicture("TaskBarIcon.ico", "Icon1 w" iconsize " h" iconsize, &imgtype)
@@ -161,6 +162,15 @@ DarkmodeButtonText := BuddyGui.Add("Text", "yp xp+20 c000000", "Darkmode")
 Global UpdateButton := BuddyGui.Add("Button", "yp-5 x+120", "Check for Updates")
 UpdateButton.OnEvent("Click", UpdateWidgetCheck)
 BuddyGui["NotePadEmbedded"].Visible := 0
+
+ToolsTab.UseTab(5)
+BuddyGui.Add("Text", "c000000", "★★☆☆☆ `"Better than expected`" - Callan Johnson")
+BuddyGui.Add("Text", "c000000", "★☆☆☆☆ `"Imagine writing a program in AHK`" - Jordan Cartledge")
+BuddyGui.Add("Text", "c000000", "☆☆☆☆☆☆`"Why is there a mute button`" - Sam Milburn")
+BuddyGui.Add("Text", "c000000", "★★★★★ `"I need help with support, the app doesn't work`" - Jakob McCutcheon")
+
+BuddyGui.Add("Text", "c000000", "Average: 2.5 Stars")
+
 
 ; Customer name edit field. This is sanitised because tabs and symbols can cause output generation errors
 global CustomerName := ""  

@@ -366,7 +366,7 @@ RunGPT(*) {
 }
 
 ; Mostly for debugging/consistent. SHows you the hex code of the color under your mouse
-^!z:: 
+^+z:: 
 {
     MouseGetPos &MouseX, &MouseY
     A_Clipboard := PixelGetColor(MouseX, MouseY)
@@ -410,7 +410,7 @@ RunQueues(ctrl, *) {
 ; Everything below this is the update functions
 
 
-VersionNumber := "5.4"
+VersionNumber := "5.5"
 
 
 Download("https://raw.githubusercontent.com/EffexDev/Buddy-Telco-Widget/refs/heads/main/version.ini", A_WorkingDir . "\version.ini")

@@ -1,4 +1,6 @@
------- Version 5.4 ------
-1. Added more CSP Linking codes in Faults > CSP Linking > Misc
-2. Fixed the multiple UNI-D ports template
-3. Removed sentence from day 3 of hardware payment failed that made it sound super cheery
+------ Version 5.5 ------
+Added some little AI prompty bois
+Fixed the complaints > Faults template
+Fixed some delivery templates
+Added bill explainer link to General > OTRS
+Changed times and the LC link
