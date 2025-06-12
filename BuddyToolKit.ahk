@@ -28,7 +28,7 @@ Global DropoutsMap := Map()
 Global ConnectionMap := Map()
 Global SetupMap := Map()
 Global LinkMap := Map()
-Global HardwareMap := Map()
+Global LocalIssuesMap := Map()
 Global ServiceRequestMap := Map()
 Global DelaysMap := Map()
 Global HFCMap := Map()
@@ -170,7 +170,6 @@ BuddyGui.Add("Text", "c000000", "☆☆☆☆☆☆`"Why is there a mute button`
 BuddyGui.Add("Text", "c000000", "★★★★★ `"I need help with support, the app doesn't work`" - Jakob McCutcheon")
 
 BuddyGui.Add("Text", "c000000", "Average: 2.5 Stars")
-
 
 ; Customer name edit field. This is sanitised because tabs and symbols can cause output generation errors
 global CustomerName := ""  
