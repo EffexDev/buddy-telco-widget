@@ -1,6 +1,7 @@
------- Version 5.6 ------
+------ Version 6 ------
 Added some little AI prompty bois
 Fixed the complaints > Faults template
 Fixed some delivery templates
 Added bill explainer link to General > OTRS
 Changed times and the LC link
+Overhauled a bunch of the templates. ie, removing intros from OTRS, reshuffled the Faults tab to make more sense

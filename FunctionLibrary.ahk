@@ -365,7 +365,7 @@ RunGPT(*) {
     Run "https://chatgpt.com/"
 }
 
-; Mostly for debugging/consistent. SHows you the hex code of the color under your mouse
+; Mostly for debugging/consistent. Shows you the hex code of the color under your mouse
 ^+z:: 
 {
     MouseGetPos &MouseX, &MouseY
@@ -409,9 +409,7 @@ RunQueues(ctrl, *) {
 
 ; Everything below this is the update functions
 
-
-VersionNumber := "5.6"
-
+VersionNumber := "6"
 
 Download("https://raw.githubusercontent.com/EffexDev/Buddy-Telco-Widget/refs/heads/main/version.ini", A_WorkingDir . "\version.ini")
 global VersionNumberCheck := IniRead("version.ini", "Version", "VersionNumber")
@@ -472,26 +470,26 @@ UpdateWidget(*) {
     LoadingGui.Show("w200 h60")
     LoadingGui.Add("Text", "cFFFFFF", "Updating")
     LoadingGui.Add("Progress", " w180 h20 cGreen vMyProgress", 0)
+    LoadingGui["MyProgress"].Value := 80
+    Sleep "500"
+    LoadingGui["MyProgress"].Value := 65
+    Sleep "500"    
     LoadingGui["MyProgress"].Value := 12
     Sleep "500"
-    LoadingGui["MyProgress"].Value := 24
-    Sleep "500"    
+    Download("https://raw.githubusercontent.com/EffexDev/Buddy-Telco-Widget/refs/heads/main/FunctionLibrary.ahk", A_WorkingDir . "\FunctionLibrary.ahk")
     LoadingGui["MyProgress"].Value := 36
     Sleep "500"
-    Download("https://raw.githubusercontent.com/EffexDev/Buddy-Telco-Widget/refs/heads/main/FunctionLibrary.ahk", A_WorkingDir . "\FunctionLibrary.ahk")
-    LoadingGui["MyProgress"].Value := 48
-    Sleep "500"
     Download("https://raw.githubusercontent.com/EffexDev/Buddy-Telco-Widget/refs/heads/main/Generate.ahk", A_WorkingDir . "\Generate.ahk")
-    LoadingGui["MyProgress"].Value := 60
+    LoadingGui["MyProgress"].Value := 90
     Sleep "1000"
     Download("https://raw.githubusercontent.com/EffexDev/Buddy-Telco-Widget/refs/heads/main/Settings.ahk", A_WorkingDir . "\Settings.ahk")
-    LoadingGui["MyProgress"].Value := 72
+    LoadingGui["MyProgress"].Value := 2
     Sleep "500"
     Download("https://raw.githubusercontent.com/EffexDev/Buddy-Telco-Widget/refs/heads/main/Templates.ahk", A_WorkingDir . "\Templates.ahk")
-    LoadingGui["MyProgress"].Value := 84
+    LoadingGui["MyProgress"].Value := 57
     Sleep "500"
     Download("https://raw.githubusercontent.com/EffexDev/Buddy-Telco-Widget/refs/heads/main/config.ini", A_WorkingDir . "\config.ini")
-    LoadingGui["MyProgress"].Value := 96
+    LoadingGui["MyProgress"].Value := 88
     Download("https://raw.githubusercontent.com/EffexDev/Buddy-Telco-Widget/refs/heads/main/BuddyToolKit.ahk", A_WorkingDir . "\BuddyToolKit.ahk")
     LoadingGui["MyProgress"].Value := 100
     Download("https://raw.githubusercontent.com/EffexDev/Buddy-Telco-Widget/refs/heads/main/Changelog.txt", A_WorkingDir . "\Changelog.txt")
