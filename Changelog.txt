@@ -1,7 +1,7 @@
------- Version 6 ------
-Added some little AI prompty bois
-Fixed the complaints > Faults template
-Fixed some delivery templates
-Added bill explainer link to General > OTRS
-Changed times and the LC link
-Overhauled a bunch of the templates. ie, removing intros from OTRS, reshuffled the Faults tab to make more sense
+------ Version 6.1 ------
+Removed all instances of "Buddy Telco Here"
+Fleshed out No connection > UNI-D Port
+Added Complaints outages section
+    - Significant Local Outage has templates
+    - Major Outage still needs them but will do when we come across one
+
