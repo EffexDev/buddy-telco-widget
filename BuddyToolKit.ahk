@@ -49,6 +49,7 @@ Global TCSGeneralMap := Map()
 Global TCSBillingMap := Map()
 Global TCSSuspensionMap := Map()
 Global TCSChangesMap := Map()
+Global ComplaintOutageMap := Map()
 
 Global NotesGui := Gui(,"Notepad"), Notes := NotesGui.Add("Edit", "h600 w685", "")
 Global TemplatesGui := Gui(,"Templates"), Templates := TemplatesGui.Add("Edit", "h600 w685", "")
